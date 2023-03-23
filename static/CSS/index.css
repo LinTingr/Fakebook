@@ -1,0 +1,608 @@
+body, ul, ol{
+    margin: 0;
+    padding: 0;
+    background-color: #f0f2f5;
+}
+div{
+    word-wrap: break-word;
+}
+.color{
+    background-color: #dff0fe;
+}
+.errorBack{
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    background-color: rgba(60, 60, 60, 0.5);
+    z-index: 3;
+}
+.error{
+    width: 340px;
+    height: auto;
+    /* top: 80px; */
+    margin: 80px 550px;
+    position: absolute;
+    box-shadow: 0 4px 60px #aaaaaa;
+    background-color: #fff;
+    border-radius: 6px;
+}
+.errorMessageTop{
+    border: 0;
+    margin: 0;
+    width: 340px;
+    height: 10px;
+    background: linear-gradient(270deg, #337788 0%, #66AABB 100%);
+    border-radius: 6px 6px 0px 0px;
+}
+.errorMessageMain{
+    width: 310px;
+    height: 100px;
+    margin: auto;
+}
+.errorMessageText{
+    width: 310px;
+    height: 100px;
+    font-size: 24px;
+    font-weight: 700;
+    text-align: center;
+    margin: 15px auto 0;
+    color: #666666;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.errorClose{
+    position: absolute;
+    right: 17px;
+    cursor: pointer;
+}
+.none{
+    display: none;
+}
+.link{
+    color:#000;
+    text-decoration: none;
+    width: 48%;
+    display: contents;
+}
+.memberSystem{
+    width: auto;
+    margin: 0 auto;
+    display: flex;
+    justify-content: end;
+}
+.memberFrameSystem{
+    position: absolute;
+    width: 120px;
+    height: 82px;
+    background-color: #fff;
+    box-shadow: 0px 0px 20px #757575;
+    border-radius: 10px;
+}
+.memberCenter, .signOut{
+    text-align: center;
+    width: 120px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 1px solid;
+    cursor: pointer;
+}
+.memberCenter:hover, .signOut:hover{
+    background-color: #e5e5e5;
+}
+.memberLink{
+    width: 120px;
+    height: auto;
+}
+.backgroundFrame{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.locationFrame{
+    position: relative;
+    width: 500px;
+    height: 580px;
+    background-color: #fff;
+    border-radius: 15px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+.imageFrame{
+    position: relative;
+    width: 500px;
+    height: 650px;
+    background-color: #fff;
+    border-radius: 15px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+.searclocationText, .imageText{
+    width: 100%;
+    height: 36px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    font-weight: bolder;
+    background-color: #accaf2;
+}
+.searclocationTextFrame, .imageTextFrame{
+    display: flex;
+}
+.closelocation, .closeImage{
+    position: absolute;
+    right:-2px;
+    cursor: pointer;
+    user-select: none;
+
+}
+.searchlocationFrame, .selectImageFrame{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.searchlocation{
+    width: 340px;
+    height:26px;
+    border-radius: 100px;
+    border: 0;
+    padding: 7px 55px 7px 55px;
+    line-height:26px ;
+    background-color: #f0f2f5;
+    font-size: 18px;
+    background-image: url("/icon/search.png");
+    background-position: 10px center;
+    background-repeat: no-repeat;
+}
+.searchIcon{
+    width: 40px;
+    margin: 10px 10px;
+}
+.searchresultframeback{
+    width: auto;
+    height: 468px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+.statuslist{
+    display: flex;
+    justify-content: space-between;
+}
+.errorMessage{
+    color: #f00;
+    margin: 0 auto;
+    text-align: center;
+    top: 100px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    position: absolute;
+    user-select: none;
+}
+.imagePreviewframeback{
+    width: auto;
+    height: 555px;
+    background-color: #d9e8fc;
+}
+.searchresultframeback::-webkit-scrollbar{
+    width: 10px;
+}
+.searchresultframeback::-webkit-scrollbar-thumb {
+    background-color: #cccccc;
+    border: 1px solid slategrey;
+    border-radius: 5px;
+}
+.searchresultframe{
+    display: flex;
+    border-bottom: 1px solid#aaaaaa;
+    cursor: pointer;
+}
+.searchresultTextframe{
+    margin: auto 0;
+}
+.imagePreviewframe{
+    width: 500px;
+    height: 520px;
+}
+.imagePreview{
+    width: 500px;
+    height: 520px;
+    background-color: #d9e8fc;
+}
+.output{
+    width: 250px;
+    height: 250px;
+    object-fit: cover;
+}
+.buttonFrame{
+    width: 500px;
+    height: 50px;
+    text-align: center;
+    margin: 5px 0;
+}
+.root{
+    display: flex;
+    justify-content: space-between;
+}
+.home{
+    width: 100%;
+    height: 100%;
+}
+.selectFrame{
+    width: 300px;
+    height: auto;
+    padding: 16px 0px 8px;
+
+}
+.memberFrame, .KanbanFrame{
+    width: 300px;
+    height: auto;
+}
+.homepageframe, .member{
+    display: flex;
+    width: 260px;
+    height: 20px;
+    padding: 8px 20px;
+    cursor: pointer;
+}
+/* .member{
+    padding: 6px 18px;
+} */
+.memberavatar{
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+}
+.forumavatar{
+    width: 20px;
+    height: 20px;
+    border:  1px solid;
+    border-radius: 50%;
+}
+
+.home, .membername{
+    margin: 0 0 0 14px;
+}
+.AllPostFrame{
+    width: 100%;
+    height: auto;
+    margin-top: 16px;
+}
+.postBlock{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.postFrame{
+    width: 680px;
+    height: auto;
+    background-color: #fff;
+    border-radius: 10px;
+    margin: 0 0 16px;
+    padding: 8px 0 ;
+}
+.postmemberArea{
+    width: 680px;
+    height: auto;
+    display: flex;
+}
+.memberPostAvatar{
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    border: 1px solid white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.memberPostAvatarImg{
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+}
+.postTextInput{
+    width: 540px;
+    height: 80px;
+    font-size: 16px;
+    font-weight: 500;
+    resize: none;
+    border-radius: 10px;
+    outline: none;
+    padding: 8px 12px;
+    margin-left: 10px;
+    background-color: #e1e1e2;
+    font-size: 16px;
+    font-weight: 500;
+    transition-duration:1s;
+}
+.postTextInput:focus{
+    height: 150px;
+}
+.postTextInput::-webkit-scrollbar{
+    width: 10px;
+}
+.postTextInput::-webkit-scrollbar-thumb {
+    background-color: #cccccc;
+    border: 1px solid slategrey;
+    border-radius: 5px;
+}
+.selectlocationFrame{
+    width: auto;
+    height: 30px;
+    display: flex;
+    justify-content: flex-end;
+    margin: 5px 25px;
+}
+.selectlocation{
+    width: auto;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color:#1d64c2;
+    margin-right: 10px;
+}
+.locationClose{
+    width:15px;
+    height: 15px;
+    cursor: pointer;
+}
+.linklocation{
+    display: flex;
+}
+.Postfunction{
+    display: flex;
+}
+.memberPostPicture, .memberPostLocation{
+    width: 100px;
+    height: 40px;
+    margin-left: 30px;
+    display: flex;
+    cursor: pointer;
+    user-select: none;
+}
+.hover:hover{
+    background-color: #f2f2f2;
+}
+.Pictext{
+    width: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    user-select: none;
+}
+.lastclickPost{
+    background-color:#dff0fe; 
+    border-radius:10px; 
+    margin-left: 340px;
+    cursor: pointer;
+}
+.postContainer{
+    width: 680px;
+    height: auto;
+    background-color: #fff;
+    border-radius: 10px;
+    margin: 0 0 16px;
+    padding: 8px 0 8px;
+}
+.postAvatar{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 1px solid;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.postmemberLink{
+    width: 50px;
+    height: 50px;
+}
+.userAvatarImg{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+.postAvatarMembername{
+    width: 680px;
+    height: 52px;
+    display: flex;
+}
+.postmembername{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 10px;
+    font-size: 25px;
+}
+.postMemberlocationlink{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.postMemberlocation{
+    width: auto;
+    height: auto;
+    color:#1d64c2;
+    display: contents;
+}
+.postcontext{
+    width: 650px;
+    height: auto;
+    margin: 0 auto;
+    line-height: 30px;
+    font-size: 16px;
+    font-weight: 500;
+    white-space: pre-wrap;
+}
+.postimageFrame{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 680px;
+    height: 220px;
+}
+.postImage{
+    width: 32%;
+    height: 200px;
+    margin: auto;
+}
+.likeMessageiconCountFrame{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 10px 10px;
+}
+.likeiconFrame, .messiconFrame{
+    display: flex;
+    cursor: pointer;
+}
+.likeCount, .messageCount{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 5px;
+}
+.likeMessageiconFrame{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.likeclickFrame, .messagechatFrame, .shareclickFrame{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 33%;
+    height: 32px;
+    cursor: pointer;
+    user-select: none;
+}
+.AllchatFrame{
+    width: 680px;
+    height: auto;
+    display: flex;
+}
+.watchmorechatmessage{
+    margin: 0 10px 10px 10px;
+    cursor: pointer;
+}
+.avatarchatmessageFrame{
+    display: flex;
+    margin: 5px 0;
+}
+
+.userAvatar{
+    width: 35px;
+    height: 35px;
+    border: 1px solid;
+    border-radius: 50%;
+    margin: 0 10px 10px 10px;
+}
+.userChatmessageFrame{
+    max-width: 580px;
+    width: auto;
+    height: auto;
+    min-height: 45px;
+    padding: 8px 12px;
+    border-radius: 15px;
+    background-color: #f0f2f5;
+    line-height: 23px;
+}
+.userChatmessageName{
+    font-size: 18px;
+}
+.userChatmessageMess{
+    font-size: 15px;
+}
+.chatBoxFrame{
+    margin: 0 10px;
+    display: flex;
+}
+.chatboxAvatarFrame{
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    border: 1px solid;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.userAvatarimgElement{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+.chatboxInputFrame{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.chatboxInput{
+    padding: 0 10px;
+    width: 580px;
+    height: 30px;
+    margin: 0 10px;
+    border-radius: 30px;
+    border: 0;
+    background-color: #f0f2f5;
+}
+.contactPersonFrame{
+    width: 360px;
+    height: 900px;
+}
+.contactPersonTextFrame{
+    width: 360px;
+    height: auto;
+    padding: 16px 0 0;
+    display: flex;
+}
+.contactPersonText{
+    width: 208px;
+    height: 21px;
+    padding: 0 16px;
+}
+.contactPerson{
+    width: 360px;
+    height: 37px;
+    padding: 20px 0px 4px;
+}
+.settingicon{
+    margin: 0 5px;
+}
+.PersonFrame{
+    width: 340px;
+    height: 44px;
+    padding: 0 8px;
+}
+.Person{
+    width: 320px;
+    height: 44px;
+    padding: 0 8px;
+    display: flex;
+}
+.PersonAvatar{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 32px;
+    height: 32px;
+}
+.friendavatarImg{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+.PersonName{
+    padding: 12px 10px;
+}

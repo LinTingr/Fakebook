@@ -1,0 +1,160 @@
+.none{
+    display: none;
+}
+.title{
+    width: 100%;
+    height: 54px;
+    position: sticky;
+    background-color: #fff;
+    top:0;
+    z-index: 2;
+    border-bottom: 1px solid #E8E8E8;
+}
+.titleAll{
+    width: 1200px;
+    height:54px;
+    display: flex;
+    margin: auto;
+    align-items: center;
+    justify-content: space-between;
+}
+.titleHead{
+    width: 150px;
+    height: 34px;
+    display: flex;
+    align-items: center;
+    color:#448899;
+    font-size:30px;
+    font-weight: 700;
+    background-color: #fff;
+}
+.titleHead a{
+    text-decoration: none;
+    color: #448899;
+}
+.signinup, .MemberSystem{
+    width:120px;
+    height:22px;
+    font-size: 16px;
+    margin-left: 20px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+.signinup:hover, .schedule:hover{
+    border-radius: 5px;
+    background-color: #e5e5e5;
+}
+.signinBack{
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    /* background-color: rgba(60, 60, 60, 0.5); */
+    z-index: 3;
+}
+.signinFrame{
+    width: 340px;
+    height: auto;
+    top: 80px;
+    position: absolute;
+    box-shadow: 0 4px 60px #aaaaaa;
+    background-color: #fff;
+    border-radius: 6px;
+} 
+.signupFrame{
+    width: 340px;
+    height: auto;
+    margin: 80px 550px;
+    position: absolute;
+    box-shadow: 0 4px 60px #aaaaaa;
+    background-color: #fff;
+    border-radius: 6px;
+}
+.signinHr, .signupHr{
+    border: 0;
+    margin: 0;
+    width: 340px;
+    height: 10px;
+    background: linear-gradient(270deg, #337788 0%, #66AABB 100%);
+    border-radius: 6px 6px 0px 0px;
+}
+.signinMain, .signupMain{
+    width: 310px;
+    height: auto;
+    margin: auto;
+}
+.signinText, .signupText{
+    width: 310px;
+    height: 27px;
+    font-size: 24px;
+    font-weight: 700;
+    text-align: center;
+    margin: 15px auto 0;
+    color: #666666;
+    display: flex;
+    justify-content: center;
+}
+.close{
+    position: absolute;
+    right: 17px;
+    cursor: pointer;
+}
+.nameSignup, .accountSignin, .passwordSignin, .accountSignup, .passwordSignup {
+    width: 308px;
+    height: 45px;
+    border: 1px solid #cccccc;
+    border-radius: 5px;
+    padding: 15px;
+    box-sizing: border-box;
+    margin: 15px auto 0;
+    
+}
+::placeholder{
+    width: 280px;
+    font-weight: 500;
+    font-size: 16px;
+}
+.signinBtn, .signupBtn{
+    width: 310px;
+    height: 47px;
+    background-color: #448899;
+    border: 0;
+    margin: 15px auto 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+.signinBtnText, .signupBtnText{
+    width: 270px;
+    height: 27px;
+    font-weight: 400;
+    font-size: 19px;
+    color: #fff;
+    text-align: center;
+}
+.signinBtn:hover, .signupBtn:hover{
+    background-color: #5599aa;
+}
+.signinBtn:active, .signupBtn:active {
+    transform: translateY(1px) scale(.98);
+}
+.nosignin{
+    width: 310px;
+    height: 22px;
+    text-align: center;
+    margin: 10px auto 15px;
+    color: #666666;
+}
+.inUp{
+    color: #000;
+    cursor: pointer;
+}
+.messageRespond{
+    width: 310px;
+    height: 22px;
+    text-align: center;
+    margin: 10px auto;
+}

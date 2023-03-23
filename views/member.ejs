@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fakebook</title>
+    <link rel="stylesheet" type="text/css" href="/CSS/member.css">
+</head>
+<body>
+    <%- include("common") %>
+    <div class="backAboutMyself">
+        <div class="backupdateavatar none">
+            <div class="updateavatarFrame">
+                <div class="updateavatarTextFrame">
+                    <div class="avatartext">更新大頭貼照</div>
+                    <img src="/icon/close.png" alt=""class="closeX">
+                </div>
+                <hr>
+                <form id="form" enctype="multipart/form-data">
+                    <div class="update">
+                        <span>上傳照片</span>
+                        <input type="file" class="upload" accept="image/*">
+                    </div>
+                    <img src="" class="output">
+                    <button type="button"class="button">送出</button>
+                </form>
+            </div>
+        </div>
+        <div class="memberFrame">
+            <div class="memberbackground"></div>
+            <div class="member">
+                <div class="memberavatarNameEditFrame">
+                    <div class="memberavatarFrame">
+                        <img src="/icon/avatar.png" alt="" class="memberavatar">
+                    </div>
+                    <div class="memberEditavatarFrame none">
+                        <div class="memberEditavatar hover">
+                            <img src="/icon/uppicture.png" alt="" width="24px">
+                            <div class="memberEditavatarText">更新大頭貼</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="memberNameandFriend">
+                    <div class="memberName"></div> <!--名稱-->
+                    <div class="memberFriend"></div> <!--幾位朋友-->
+                </div>
+                <div class="memberEdit" style="display: none;">
+                    <div class="edit"><img src="/icon/pen.png" width="16px" > 編輯個人檔案</div>
+                </div>
+                <div class="addFriendFrame" style="display: none;">
+                    <div class="addFriend"><img src="/icon/addfriends.png" width="16px" class="addfriendicon"><span class="addFriendText"> 加朋友</span></div>
+                </div>
+                <div class="sendMessageFrame" style="display: none;">
+                    <div class="sendMessage"><img src="/icon/chat1.png" width="24px">發送訊息</div>
+                </div>
+            </div>
+            <div class="aboutListFrame">
+                <div class="aboutList">
+                    <div class="aboutitem itemhover">貼文</div>
+                    <div class="aboutitem itemhover">關於</div>
+                    <div class="aboutitem itemhover">朋友</div>
+                    <div class="aboutitem itemhover">相片</div>
+                </div>
+            </div>
+        </div>
+        <div class="allAboutMyselfFrame">
+            <div class="aboutMyselfFrame">
+                <div class="aboutMyself">
+                    <div class="introductionImageFriendFrame">
+                        <div class="introductionFrame">
+    
+                        </div>
+                        <div class="imageFrame"></div>
+                        <div class="friendFrame"></div>
+                    </div>
+
+                </div>
+                <div class="memberArticle">
+                    <div class="postBlock">
+                        <div class="postFrame">
+                            <div class="postmemberArea">
+                                <a href="/member" class = "nameLink">
+                                    <div class="memberPostAvatar">
+                                        <img src="" class="memberPostAvatarImg">
+                                    </div>
+                                </a>
+                                <textarea class="postTextInput" placeholder="在想些什麼?"></textarea>
+                            </div>
+                            <div class="findlocation">
+                                <!-- <div class="selectlocationFrame">
+                                    <a href="" class="linklocation"> 
+                                        <img src="/icon/placemarker.png">
+                                        <div class="selectlocation">7-ELEVEn 東敬門市</div>
+                                    </a> 
+                                    <img src="/icon/icon_close.png" class="locationClose">
+                                </div> -->
+                            </div>
+                            <hr>
+                            <div class="Postfunction">
+                                <div class="memberPostPicture hover"><img src="/icon/pictureicon.png" alt=""><div class="Pictext">相片</div></div>
+                                <div class="memberPostLocation hover"><img src="/icon/placemarker.png" alt=""><div class="Pictext">地點</div></div>
+                                <div class="lastclickPost Pictext">發佈</div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--
+                    <div class="postBlock">
+                        <div class="postContainer">
+                            <div class="postAvatarMembername">
+                                <div class="postAvatar">
+                                    <img src="/icon/member_icon.png" alt="" >
+                                </div>
+                                <div class="postmembername">會員名稱</div>
+                            </div>
+                            <hr>
+                            <div class="postcontext">
+                                000000000
+                            </div>
+                            <div class="postimageFrame">
+                                <img src="/icon/haha.jpg" class="postImage">
+                                <img src="/icon/下載 (2).jpg" class="postImage">
+                                <img src="/icon/images.jpg" class="postImage">
+                            </div>
+                            <div class="likeMessageiconCountFrame">
+                                <div class="likeiconFrame">
+                                    <img src="/icon/facebooklike.png" alt="" width="30px"><div class="likeCount"> 1 </div>
+                                </div>
+                                <div class="messiconFrame">
+                                    <img src="/icon/chatmessage.png" alt="" width="30px"><div class="messageCount"> 1 </div>
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="likeMessageiconFrame">
+                                <div class="likeclickFrame"><img src="/icon/fblike.png" alt="" width="36px">讚</div>
+                                <div class="messagechatFrame"><img src="/icon/chatmessage.png" alt="">留言</div>
+                                <div class="shareclickFrame"><img src="/icon/share.png" alt="" width="32px">分享</div>
+                            </div>
+                            <hr>
+                            <div class="AllchatFrame">
+                                <div class="watchmorechatmessage">查看更多留言...</div>
+                            </div>
+                            <div class="allchatmessageFrame">
+                                <div class="avatarchatmessageFrame">
+                                    <img src="" alt="" class="userAsvatar">
+                                    <div class="userChatmessageFrame">
+                                        <div class="userChatmessageName">名稱</div>
+                                        <div class="userChatmessageMess">brabrabra</div>
+                                    </div>
+                                </div>                    
+                            </div>
+                            <div class="chatBoxFrame">
+                                <div class="chatboxAvatarFrame">
+                                    <div class="chatboxAvatarFrame">
+                                        <img src="" alt="">
+                                    </div>
+                                </div>
+                                <div class="chatboxInputFrame">
+                                    <input type="text" class="chatboxInput">
+                                </div>
+                            </div>
+                        </div> 
+                    </div> -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="/JS/friend.js"></script>
+    <script src="/JS/common.js"></script>
+    <script src="/JS/post.js"></script>
+    <script src="/JS/member.js"></script>
+</body>
+</html>
