@@ -5,8 +5,8 @@ const postModel = {
         const connect = await promisePool.getConnection()
         try{
             const sql = `INSERT INTO post (userId, dateTime, postText, location) 
-            VALUES (?, ?, ?, ?, ?);`
-            let params = [userId, societyId, dateTime, postText, location]
+            VALUES (?, ?, ?, ?);`
+            let params = [userId, dateTime, postText, location]
             await connect.query(sql, params);
         }finally{
             connect.release()
