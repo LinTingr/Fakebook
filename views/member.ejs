@@ -8,27 +8,147 @@
     <link rel="stylesheet" type="text/css" href="/CSS/member.css">
 </head>
 <body>
+    <div class="memberloading">
+        <div class="memberLoadingText">Loading</div>
+        <img src="/icon/loading.gif" />
+    </div>
     <%- include("common") %>
     <div class="backAboutMyself">
-        <div class="backupdateavatar none">
-            <div class="updateavatarFrame">
-                <div class="updateavatarTextFrame">
-                    <div class="avatartext">更新大頭貼照</div>
-                    <img src="/icon/close.png" alt=""class="closeX">
+        <div class="backgroundFrame" style="display:none">
+            <div class="locationFrame none">
+                <div class="searclocationTextFrame">
+                    <div class="searclocationText">搜尋地點</div>
+                    <div><img src="/icon/close.png" width="32px" class="closelocation"></div>
                 </div>
                 <hr>
-                <form id="form" enctype="multipart/form-data">
-                    <div class="update">
-                        <span>上傳照片</span>
-                        <input type="file" class="upload" accept="image/*">
+                <div class="searchlocationFrame">
+                    <input type="text" class="searchlocation">
+                </div>
+                <hr>
+                <div class="searchresultframeback"></div>
+            </div>
+            <div class="zoomimageFrame" style="display: none;">
+                <div class="zoomimage">
+                    <img src="" class="ImageZoom">
+                </div>
+                <img src="/icon/close.png" class="closeImageZoom">
+            </div>
+            <div class="imageFrame none">
+                <div class="imageTextFrame">
+                    <div class="imageText">上傳圖片</div>
+                    <div><img src="/icon/close.png" width="32px" class="closeImage"></div>
+                </div>
+                <hr>
+                <div class="selectImageFrame">
+                    <span>上傳照片</span>
+                    <input type="file" class="upload" accept="image/*" multiple="multiple">
+                </div>
+                <hr>
+                <div class="imagePreviewframeback">
+                    <div class="errorMessage none">數量最多三張!!!!!!</div>
+                    <div class="imagePreviewframe">
+                        <div class="imagePreview"></div>
                     </div>
-                    <img src="" class="output">
-                    <button type="button"class="button">送出</button>
-                </form>
+                    <div class="buttonFrame"><button type="button"class="button">確認</button></div>
+                </div>
+            </div>
+            <div class="postLikerFrame none">
+                <div class="postLikerTextFrame">
+                    <div class="postLikerText">案讚的人</div>
+                    <div><img src="/icon/close.png" width="32px" class="closePostLiker"></div>
+                </div>
+                <hr>
+                <div class="allPostLikerFrame"></div>
+            </div>
+            <div class="backupdateavatar none">
+                <div class="updateavatarFrame">
+                    <div class="updateavatarTextFrame">
+                        <div class="avatartext">更新大頭貼照</div>
+                        <img src="/icon/close.png" class="closeX">
+                    </div>
+                    <hr>
+                    <form id="form" enctype="multipart/form-data">
+                        <div class="update">
+                            <span>上傳照片</span>
+                            <input type="file" class="memberPostUpload" accept="image/*">
+                        </div>
+                        <div class="outPutFrame"></div>
+                        <div class="buttonFrame">
+                            <button type="button"class="avatarButton">送出</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="backUpdateBackgroundFrame none">
+                <div class="updateBackgroundFrame">
+                    <div class="updateBackgroundTextFrame">
+                        <div class="backgroundtext">更新封面照</div>
+                        <img src="/icon/close.png" class="closeX">
+                    </div>
+                    <hr>
+                    <div class="backgroundUpdateFrame">
+                        <div class="backgroundUpdate">
+                            <span>上傳照片</span>
+                            <input type="file" class="backgroundUpload" accept="image/*">
+                        </div>
+                        <div class="backgroundOutPutFrame"></div>
+                        <div class="backgroundButtonFrame">
+                            <button type="button"class="backgroundButton">送出</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="backPostEditFrame none">
+                <div class="backPostEdit">
+                    <div class="backPostEditTextFrame">
+                        <div class="backPostEdittext">編輯貼文</div>
+                        <img src="/icon/close.png" class="closeEdit">
+                    </div>
+                    <hr>
+                    <div class="backPostEditContentFrame" style="display: block;">內容:
+                        <textarea class="backPostEditContent" placeholder="在想些什麼?"></textarea>
+                    </div>
+                    <div class="backPostEditImageFrame" style="display: none;">相片 :
+                        <div class="selectImageFrame">
+                            <span>上傳照片</span>
+                            <input type="file" class="uploadUpdateImage" accept="image/*" multiple="multiple">
+                        </div>
+                        <div class="allImage">
+                            <div class="originalImageFrame"></div>
+                            <div class="newPostImageFrame"></div>
+                        </div>
+                    </div>
+                    <div class="backPostEditLocationFrame" style="display: none;"> 
+                        <div class="updateSearclocationTextFrame">
+                            <div class="updateSearclocationText">地點 :</div>
+                            <div class="updateFindlocation"></div>
+                        </div>
+                        <hr>
+                        <div class="updateSearchlocationFrame">
+                            <input type="text" class="updateSearchlocation">
+                        </div>
+                        <hr>
+                        <div class="updateSearchresultframeback"></div>
+                    </div>
+                    <hr>
+                    <div class="updatePostfunction">
+                        <div class="updatememberPostArticle hover"><img src="/icon/pictureicon.png"><div class="Pictext">文章</div></div>
+                        <div class="updatememberPostPicture hover"><img src="/icon/pictureicon.png"><div class="Pictext">相片</div></div>
+                        <div class="updatememberPostLocation hover"><img src="/icon/placemarker.png"><div class="Pictext">地點</div></div>
+                        <div class="updateLastClickPost Pictext">發佈</div>
+                    </div>
+                </div>
             </div>
         </div>
         <div class="memberFrame">
-            <div class="memberbackground"></div>
+            <div class="memberbackgroundFrameDiv">
+                <div class="memberbackgroundFrame">
+                    <img src="/icon/white.jpg" class="memberbackground">
+                </div>
+                <div class="memberEditBackgroundButtonFrame" style="display: none;">
+                    <div class="memberEditBackgroundButton">編輯封面相片</div>
+                </div>
+            </div>
             <div class="member">
                 <div class="memberavatarNameEditFrame">
                     <div class="memberavatarFrame">
@@ -42,11 +162,8 @@
                     </div>
                 </div>
                 <div class="memberNameandFriend">
-                    <div class="memberName"></div> <!--名稱-->
-                    <div class="memberFriend"></div> <!--幾位朋友-->
-                </div>
-                <div class="memberEdit" style="display: none;">
-                    <div class="edit"><img src="/icon/pen.png" width="16px" > 編輯個人檔案</div>
+                    <div class="memberName"></div>
+                    <div class="memberFriend"></div><span>位朋友</span>
                 </div>
                 <div class="addFriendFrame" style="display: none;">
                     <div class="addFriend"><img src="/icon/addfriends.png" width="16px" class="addfriendicon"><span class="addFriendText"> 加朋友</span></div>
@@ -57,45 +174,53 @@
             </div>
             <div class="aboutListFrame">
                 <div class="aboutList">
-                    <div class="aboutitem itemhover">貼文</div>
-                    <div class="aboutitem itemhover">關於</div>
-                    <div class="aboutitem itemhover">朋友</div>
-                    <div class="aboutitem itemhover">相片</div>
+                    <div class="aboutitem itemhover postItem">貼文</div>
+                    <div class="aboutitem itemhover friendItem">朋友</div>
                 </div>
             </div>
         </div>
         <div class="allAboutMyselfFrame">
-            <div class="aboutMyselfFrame">
+            <div class="aboutMyselfFrame" style="display: flex;">
                 <div class="aboutMyself">
                     <div class="introductionImageFriendFrame">
                         <div class="introductionFrame">
-    
+                            <div class="introductionText">
+                                <span>簡介</span>
+                            </div>
+                            <div class="personIntroductionFrame">
+                                <div class="personIntroduction"></div>
+                            </div>
+                            <div class="personalProfileFrame">
+                                <span class="personalProfile">新增個人簡介</span>
+                            </div>
+                            <div class="addPersonalProfileframe none">
+                                <textarea class="addPersonalProfile" placeholder="介紹你自己"></textarea>
+                                <div class="confirmFrame">
+                                    <div class="confirmbutton">儲存</div>
+                                    <div class="cancelbutton">取消</div>
+                                </div>
+                            </div>
                         </div>
-                        <div class="imageFrame"></div>
-                        <div class="friendFrame"></div>
+                        <div class="friendFrame">
+                            <div class="moreFriendButton" style="display: none;">查看更多朋友</div>
+                            <div class="friendFrameText">
+                                <span>朋友</span>
+                                <div class="numberOfFriend"></div>
+                            </div>
+                            <div class="allFriendFrame"></div>
+                        </div>
                     </div>
-
                 </div>
                 <div class="memberArticle">
                     <div class="postBlock">
                         <div class="postFrame">
                             <div class="postmemberArea">
-                                <a href="/member" class = "nameLink">
-                                    <div class="memberPostAvatar">
-                                        <img src="" class="memberPostAvatarImg">
-                                    </div>
-                                </a>
+                                <div class="memberPostAvatar">
+                                    <img src="" class="memberPostAvatarImg">
+                                </div>
                                 <textarea class="postTextInput" placeholder="在想些什麼?"></textarea>
                             </div>
-                            <div class="findlocation">
-                                <!-- <div class="selectlocationFrame">
-                                    <a href="" class="linklocation"> 
-                                        <img src="/icon/placemarker.png">
-                                        <div class="selectlocation">7-ELEVEn 東敬門市</div>
-                                    </a> 
-                                    <img src="/icon/icon_close.png" class="locationClose">
-                                </div> -->
-                            </div>
+                            <div class="findlocation"></div>
                             <hr>
                             <div class="Postfunction">
                                 <div class="memberPostPicture hover"><img src="/icon/pictureicon.png" alt=""><div class="Pictext">相片</div></div>
@@ -104,64 +229,16 @@
                             </div>
                         </div>
                     </div>
-                    <!--
-                    <div class="postBlock">
-                        <div class="postContainer">
-                            <div class="postAvatarMembername">
-                                <div class="postAvatar">
-                                    <img src="/icon/member_icon.png" alt="" >
-                                </div>
-                                <div class="postmembername">會員名稱</div>
-                            </div>
-                            <hr>
-                            <div class="postcontext">
-                                000000000
-                            </div>
-                            <div class="postimageFrame">
-                                <img src="/icon/haha.jpg" class="postImage">
-                                <img src="/icon/下載 (2).jpg" class="postImage">
-                                <img src="/icon/images.jpg" class="postImage">
-                            </div>
-                            <div class="likeMessageiconCountFrame">
-                                <div class="likeiconFrame">
-                                    <img src="/icon/facebooklike.png" alt="" width="30px"><div class="likeCount"> 1 </div>
-                                </div>
-                                <div class="messiconFrame">
-                                    <img src="/icon/chatmessage.png" alt="" width="30px"><div class="messageCount"> 1 </div>
-                                </div>
-                            </div>
-                            <hr>
-                            <div class="likeMessageiconFrame">
-                                <div class="likeclickFrame"><img src="/icon/fblike.png" alt="" width="36px">讚</div>
-                                <div class="messagechatFrame"><img src="/icon/chatmessage.png" alt="">留言</div>
-                                <div class="shareclickFrame"><img src="/icon/share.png" alt="" width="32px">分享</div>
-                            </div>
-                            <hr>
-                            <div class="AllchatFrame">
-                                <div class="watchmorechatmessage">查看更多留言...</div>
-                            </div>
-                            <div class="allchatmessageFrame">
-                                <div class="avatarchatmessageFrame">
-                                    <img src="" alt="" class="userAsvatar">
-                                    <div class="userChatmessageFrame">
-                                        <div class="userChatmessageName">名稱</div>
-                                        <div class="userChatmessageMess">brabrabra</div>
-                                    </div>
-                                </div>                    
-                            </div>
-                            <div class="chatBoxFrame">
-                                <div class="chatboxAvatarFrame">
-                                    <div class="chatboxAvatarFrame">
-                                        <img src="" alt="">
-                                    </div>
-                                </div>
-                                <div class="chatboxInputFrame">
-                                    <input type="text" class="chatboxInput">
-                                </div>
-                            </div>
-                        </div> 
-                    </div> -->
+                    <div class="allArticle"></div>
+                    <div class="memberPostLoading">
+                        <div class="memberPostLoadingText">Loading</div>
+                        <img src="/icon/loading3.gif" />
+                    </div>
                 </div>
+
+            </div>
+            <div class="moreFriendFrame" style="display: none;">
+                <div class="moreFriend"></div>
             </div>
         </div>
     </div>
@@ -169,6 +246,7 @@
     <script src="/JS/friend.js"></script>
     <script src="/JS/common.js"></script>
     <script src="/JS/post.js"></script>
+    <script src="/JS/memberPost.js"></script>
     <script src="/JS/member.js"></script>
 </body>
 </html>

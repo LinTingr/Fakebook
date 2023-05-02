@@ -11,6 +11,16 @@ const memberModel = {
             connect.release()
         }
     },
+    storeBackground : async(picdata, email) => {
+        const connect = await promisePool.getConnection()
+        try{
+            const sql = "UPDATE user SET userBackground = ? WHERE useremail = ?"
+            let params = [picdata, email];
+            await connect.query(sql, params);
+        }finally{
+            connect.release()
+        }
+    },
     checkCookie : async(email) => {
         const connect = await promisePool.getConnection()
         try{
@@ -33,7 +43,7 @@ const memberModel = {
             connect.release()
         }
     },
-    getPost : async(memberId) => {
+    getPost : async(memberId, nextPage) => {
         const connect = await promisePool.getConnection()
         try{
             const sql = `
@@ -44,9 +54,10 @@ const memberModel = {
             FROM post
             INNER JOIN user ON post.userId = user.userId
             WHERE user.userId = ?
-            ORDER BY post.dateTime DESC;
+            ORDER BY post.dateTime DESC
+            LIMIT ?, 6;
             `;
-            let params = [memberId];
+            let params = [memberId, nextPage*5];
             const [result] = await connect.query(sql, params);
             return result
         }finally{
@@ -60,6 +71,16 @@ const memberModel = {
             let params = [`%${memberName}%`];
             const [result] = await connect.query(sql, params);
             return result
+        }finally{
+            connect.release()
+        }
+    },
+    addIntroduction : async(userId, introduction) => {
+        const connect = await promisePool.getConnection()
+        try{
+            const sql = "UPDATE user SET userIntroduction = ? WHERE userId = ?;";
+            let params = [introduction, userId];
+            await connect.query(sql, params);
         }finally{
             connect.release()
         }

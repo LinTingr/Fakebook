@@ -1,4 +1,31 @@
-
+div{
+    word-wrap: break-word;
+}
+.memberloading {
+    position: fixed;
+    z-index: 9999;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #ffffff;
+    opacity: 0.8;
+    transition: 1s ;
+}
+.memberLoadingText, .memberPostLoadingText{
+    margin-right: 10px;
+}
+.memberPostLoading{
+    display: none;
+    align-items: center;
+    justify-content: center;
+    width: 600px;
+    height: 50px;
+    margin: 0 auto;
+}
 .none{
     display: none;
 }
@@ -11,11 +38,41 @@
     background-color: #f0f2f5;
     border-bottom: 1px solid #9a9a9a;
 }
-.memberbackground{
+.memberbackgroundFrameDiv{
     width: 1250px;
     height: 450px;
     margin: auto;
     background-color: wheat;
+    position: relative;
+}
+.memberbackground{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.memberEditBackgroundButtonFrame{
+    width: 1250px;
+    height: 60px; 
+    display: flex;
+    align-items: center;
+    position: absolute;
+    bottom: 0px;
+}
+.memberEditBackgroundButton{
+    width: 160px;
+    height: 36px;
+    position: absolute;
+    right: 30px;
+    background-color: #fff;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    user-select: none;
+    cursor: pointer;
+}
+.memberEditBackgroundButton:hover{
+    background-color: #f2f2f2;
 }
 .member{
     width: 1250px;
@@ -37,6 +94,7 @@
     margin-left: 20px;
     border: 3px solid white;
     border-radius: 50%;
+    user-select: none;
 }
 .memberavatar{
     background-color: #fff;
@@ -73,12 +131,30 @@
     justify-content: center;
     align-items: center;
 }
-.backupdateavatar{
-    position: absolute;
+.memberbackgroundFrame{
+    width: 1250px;
+    height: 450px;
+}
+.backgroundFrame{
+    position: fixed;
+    top: 0;
+    left: 0;
     width: 100%;
-    height: 900px;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 999;
+}
+.backupdateavatar, .backUpdateBackgroundFrame{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
     background-color: rgba(255, 255, 255, 0.575);
-
+    z-index: 9;
 }
 .updateavatarFrame{
     position: relative;
@@ -86,19 +162,35 @@
     height: 500px;
     background-color: #fff;
     margin: 60px auto;
-    border-radius: 10px;
+    border-radius: 15px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
-.updateavatarTextFrame{
+.updateBackgroundFrame{
+    position: relative;
+    width: 1250px;
+    height: 500px;
+    background-color: #fff;
+    margin: 60px auto;
+    border-radius: 15px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+.updateavatarTextFrame, .updateBackgroundTextFrame{
     display: flex;
     justify-content: space-between;
     align-items: center;
     position: relative;
 }
-.avatartext{
+.avatartext, .backgroundtext{
     margin: 0 auto;
-    font-size: 35px;
+    width: 100%;
+    height: 36px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
     font-weight: bolder;
+    background-color: #accaf2;
+    border-radius: 15px 15px 0 0;
 }
 .closeX{
     position: absolute;
@@ -106,10 +198,11 @@
     right: 0px;
     cursor: pointer;
 }
-.button{
+.closeEdit{
     position: absolute;
-    bottom: 0;
-    right: 0;
+    width: 30px;
+    right: 0px;
+    cursor: pointer;
 }
 .update{
     width: 500px;
@@ -123,10 +216,25 @@
     line-height: 37px;
     background-color: #dbe7f2;
 }
-.upload{
+.backgroundUpdateFrame{
+    background-color: #d9e8fc;
+    border-radius: 0 0 15px 15px;
+}
+.backgroundUpdate{
+    width: 1250px;
+    height: 40px;
+    overflow: hidden;
+    position: relative;
+    display: inline-block;
+    text-align: center;
+    align-items: center;
+    border-radius: 10px;
+    line-height: 37px;
+    background-color: #dbe7f2;
+}
+.upload, .backgroundUpload{
     position: absolute;
     opacity: 0;
-    filter: alpha(opacity=0);
     top: 0;
     right: 0;
     margin: auto;
@@ -134,9 +242,51 @@
     height: 100%;
     cursor: pointer;  
 }
+.outPutFrame{
+    width: 500px;
+    height: 402px;
+    background-color: #d9e8fc;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 0 0 15px 15px;
+}
+.backgroundOutPutFrame{
+    width: 1250px;
+    height: 450px;
+    background-color: #d9e8fc;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 0 0 15px 15px;
+}
 .output{
     width: 300px;
     height: 300px;
+    object-fit: cover;
+}
+.backgroundOutput{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.backgroundButtonFrame{
+    width: 1250px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    bottom: 0px;
+}
+.buttonFrame{
+    width: 500px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    bottom: 30px;
 }
 .memberNameandFriend{
     width: 669px;
@@ -145,6 +295,11 @@
 }
 .memberName{
     font-size: 30px;
+}
+.memberFriend{
+    display: inline-block;
+    margin-right: 5px;
+    font-size: 20px;
 }
 .edit{
     width: 136px;
@@ -224,6 +379,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    cursor: pointer;
+    user-select: none;
 }
 .itemhover:hover{
     background-color: #f2f2f2;
@@ -239,9 +396,10 @@
     background-color: #f0f2f5;
     margin: 0 auto;
 }
-.aboutMyselfFrame{
+.aboutMyselfFrame, .moreFriendFrame{
     width: auto;
     height: auto;
+    /* min-height: 500px; */
     margin: 16px 0 0;
     padding: 0 16px;
     display: flex;
@@ -254,7 +412,7 @@
 .postBlock{
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-end;
 }
 .postFrame{
     width: 680px;
@@ -287,8 +445,6 @@
 .postTextInput{
     width: 540px;
     height: 80px;
-    font-size: 16px;
-    font-weight: 500;
     resize: none;
     border-radius: 10px;
     outline: none;
@@ -297,10 +453,6 @@
     background-color: #e1e1e2;
     font-size: 16px;
     font-weight: 500;
-    transition-duration:1s;
-}
-.postTextInput:focus{
-    height: 150px;
 }
 .postTextInput::-webkit-scrollbar{
     width: 10px;
@@ -361,6 +513,47 @@
     margin-left: 340px;
     cursor: pointer;
 }
+.postEditIconFrame{
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    margin: 10px 5px;
+    border-radius: 50%;
+    cursor: pointer;
+    user-select: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.postEditIconFrame:hover{
+    background-color: #f2f2f2;
+}
+.postEditFrame{
+    display: none;
+    width: 100px;
+    height: 60px;
+    position: absolute;
+    right: 0px;
+    top: 45px;
+    cursor: pointer;
+    user-select: none;
+    background-color: #ffffff;
+    box-shadow: 0 0 5px #000;
+    border-radius: 5px;
+}
+.postDelete, .postEdit{
+    width: 100px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.postDelete:hover, .postEdit:hover{
+    border-radius: 5px;
+    background-color: #f2f2f2;
+}
 .postContainer{
     width: 680px;
     height: auto;
@@ -368,6 +561,7 @@
     border-radius: 10px;
     margin: 0 0 16px;
     padding: 8px 0 8px;
+    position: relative;
 }
 .postAvatar{
     width: 50px;
@@ -457,10 +651,14 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 33%;
+    width: 49%;
     height: 32px;
     cursor: pointer;
     user-select: none;
+}
+.likeclick{
+    width: 36px;
+    height: 36px;
 }
 .AllchatFrame{
     width: 680px;
@@ -538,7 +736,91 @@
 }
 .introductionFrame{
     width: 490px;
-    height: 360px;
+    height: auto;
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 10px 0px;
+}
+.introductionText{
+    width: auto;
+    height: 26px;
+    padding: 10px 15px;
+    font-size: 22px;
+    font-weight: 800;
+}
+.personIntroductionFrame{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.personIntroduction{
+    width: 450px;
+    height: auto;
+    white-space: pre-wrap;
+}
+.personalProfileFrame, .editDetailsFrame{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0;
+
+}
+.personalProfile:hover, .editDetails:hover, .confirmbutton:hover, .cancelbutton:hover{
+    background-color: #d8dadf;
+}
+.addPersonalProfileframe{
+    margin: 0 auto;
+}
+.addPersonalProfile{
+    width: 425px;
+    height: 80px;
+    font-size: 16px;
+    font-weight: 500;
+    resize: none;
+    border-radius: 10px;
+    outline: none;
+    padding: 8px 12px;
+    margin: 0px 20px;
+    background-color: #e1e1e2;
+}
+.confirmFrame{
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    margin-top: 5px;
+    margin-right: 20px;
+    user-select: none;
+}
+.confirmbutton{
+    text-align: center;
+    display: 80px;
+    width: 40px;
+    border-radius: 10px;
+    margin: 0 10px;
+    background-color: #8ea5e5;
+    cursor: pointer;
+    user-select: none;
+}
+.cancelbutton{
+    text-align: center;
+    display: 80px;
+    width: 40px;
+    border-radius: 10px;
+    margin: 0 10px;
+    background-color: #b6b7b9;
+    cursor: pointer;
+
+}
+
+.personalProfile, .editDetails{
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 450px;
+    height: 36px;
+    background-color: #e4e6eb;
+    border-radius: 10px;
 }
 .imageFrame{
     width: 490px;
@@ -546,5 +828,556 @@
 }
 .friendFrame{
     width: 490px;
-    height: 680px;
+    height: auto;
+    background-color: #fff;
+    margin-top: 15px;
+    border-radius: 10px;
+    position: relative;
+}
+.moreFriendButton{
+    position: absolute;
+    right: 0px;
+    margin: 15px 10px;
+    cursor: pointer;
+    user-select: none;
+}
+.friendFrameText{
+    width: auto;
+    height: 26px;
+    padding: 10px 15px;
+    font-size: 22px;
+    font-weight: 800;
+}
+.numberOfFriend{
+    font-size: 15px;
+    font-weight: 300;
+}
+.allFriendFrame{
+    width: 460px;
+    height: auto;
+    max-height: 530px;
+    padding: 30px 15px;
+    display: flex;
+    flex-wrap: wrap;
+}
+.friend{
+    width: 130px;
+    height: 130px;
+    background-color: #bfc1c5;
+    margin: 15px 11px;
+}
+.friendImage{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.friendName{
+    position: relative;
+}
+.moreFriend{
+    width: 1218px;
+    height: auto;
+    background-color: #fff;
+    margin-bottom: 100px;
+    display: flex;
+    flex-wrap: wrap;
+    border-radius: 10px
+}
+.oneFriendFrame{
+    width: 600px;
+    height: 100px;
+    background-color: #fff;
+    display: flex;
+    margin: 9px 3px;
+    border: 1px solid #f7f7f7;
+    border-radius: 10px;
+
+}
+.oneFriendAvatarFrame{
+    width: 100px;
+    height: 100px;
+    border-radius: 10px;
+}
+.oneFriendAvatar{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+
+}
+.oneFriendNameFrame{
+    width: 460px;
+    height: 100px;
+    display: flex;
+    align-items: center;
+}
+.oneFriendName{
+    margin-left: 10px;
+    font-size: 24px;
+}
+.oneFriendSettingFrame{
+    width: 30px;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 10px;
+    position: relative;
+}
+.deleteFriendButton:hover{
+    cursor: pointer;
+    background-color: #f2f2f2;
+    border-radius: 5px;
+}
+.backPostEditFrame{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.575);
+    z-index: 9;
+}
+.backPostEdit{
+    position: relative;
+    width: 500px;
+    height: auto;
+    padding: 10px;
+    background-color: #fff;
+    margin: 60px auto;
+    border-radius: 15px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+.backPostEditTextFrame{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.backPostEdittext{
+    font-size: 25px;
+}
+.backPostEditContent{
+    width: 476px;
+    height: 284px;
+    font-size: 16px;
+    font-weight: 500;
+    resize: none;
+    border-radius: 10px;
+    outline: none;
+    padding: 8px 12px;
+    background-color: #e1e1e2;
+}
+.backPostEditImageDeleteFrame{
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    top: 0px;
+    right: 0px;
+    cursor: pointer;
+    user-select: none;
+    margin-right: 10px;
+}
+.backPostEditImageFrame{
+    position: relative;
+    width: 500px;
+    height: auto;
+}
+.backPostEditLocation{
+    width: 500px;
+    height: 40px;
+}
+.updatePostfunction{
+    position: relative;
+    display: flex;
+    margin-top: 10px;
+}
+.updatememberPostPicture, .updatememberPostLocation, .updatememberPostArticle{
+    width: 100px;
+    height: 40px;
+    margin-left: 30px;
+    display: flex;
+    cursor: pointer;
+    user-select: none;
+}
+.updateLastClickPost{
+    background-color: #dff0fe;
+    border-radius: 10px;
+    margin-left: 40px;
+    cursor: pointer;
+}
+/*地點*/
+.updateSearclocationTextFrame{
+    width: 500px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    margin-left: 5px;
+}
+.updateSearclocationText{
+    width: 45px;
+    height: 20px;
+}
+.updateFindlocation{
+    width: 450px;
+    height: 40px;
+}
+.updateSearchlocationFrame{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.updateSearchlocation{
+    width: 340px;
+    height: 26px;
+    border-radius: 100px;
+    border: 0;
+    padding: 7px 55px 7px 55px;
+    line-height:26px ;
+    background-color: #f0f2f5;
+    font-size: 18px;
+    background-image: url("/icon/search.png");
+    background-position: 10px center;
+    background-repeat: no-repeat;
+}
+.updateSearchIcon{
+    width: 40px;
+    margin: 10px 10px;
+}
+.updateSearchresultframeback{
+    width: auto;
+    height: 450px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+.updateSearchresultframeback::-webkit-scrollbar{
+    width: 10px;
+}
+.updateSearchresultframeback::-webkit-scrollbar-thumb {
+    background-color: #cccccc;
+    border: 1px solid slategrey;
+    border-radius: 5px;
+}
+.updateSearchresultframe{
+    display: flex;
+    border-bottom: 1px solid#aaaaaa;
+    cursor: pointer;
+}
+.updateSearchresultTextframe{
+    margin: auto 0;
+}
+.color{
+    background-color: #dff0fe;
+}
+/* 圖片 */
+.allImage{
+    width: 500px;
+    height: 523px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+.allImage::-webkit-scrollbar-thumb {
+    background-color: #cccccc;
+    border: 1px solid slategrey;
+    border-radius: 5px;
+}
+.allImage::-webkit-scrollbar {
+    width: 10px;
+}
+.postImageFrame{
+    position: relative;
+    width: 300px;
+    height: 300px;
+    margin: auto;
+}
+.original{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.Preview{
+    width: 60px;
+    height: 25px;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    cursor: pointer;
+    user-select: none;
+    color: #000;
+    background: #d8dadf;;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.postDeleteImage{
+    position: absolute;
+    top: 0px;
+    right: -30px;
+    cursor:pointer;
+    user-select: none;
+}
+.postDeleteImage:hover{
+    background-color: #f2f2f2;
+}
+.selectImageFrame{
+    width: 500px;
+    height: 40px;
+    overflow: hidden;
+    position: relative;
+    display: inline-block;
+    text-align: center;
+    align-items: center;
+    border-radius: 10px;
+    line-height: 37px;
+    background-color: #dbe7f2;
+}
+.uploadUpdateImage{
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: 0;
+    margin: auto;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+}
+/*deletefriend*/
+.deleteFriendButtonFrame{
+    display: none;
+    width: 100px;
+    height: 30px;
+    position: absolute;
+    right: 0px;
+    top: 65px;
+    cursor: pointer;
+    user-select: none;
+    background-color: #ffffff;
+    box-shadow: 0 0 5px #000;
+    border-radius: 5px;
+    justify-content: center;
+    align-items: center;
+}
+.deleteFriend:hover{
+    background-color: #f2f2f2;
+}
+/*postLikerFrame*/
+.postLikerTextFrame{
+    display: flex;
+}
+.closePostLiker{
+    position: absolute;
+    right:-2px;
+    cursor: pointer;
+    user-select: none;
+}
+.postLikerText{
+    width: 100%;
+    height: 36px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    font-weight: bolder;
+    background-color: #accaf2;
+    border-radius: 15px 15px 0 0
+}
+.postLikerFrame{
+    position: relative;
+    width: 300px;
+    height: 300px;
+    background-color: #fff;
+    border-radius: 15px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+.allPostLikerFrame{
+    width: 300px;
+    height: 246px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+.allPostLikerFrame::-webkit-scrollbar {
+    width: 10px;
+}
+.allPostLikerFrame::-webkit-scrollbar-thumb {
+    background-color: #cccccc;
+    border: 1px solid slategrey;
+    border-radius: 5px;
+}
+
+.onePostLikerFrame{
+    display: flex;
+    margin: 6px 0px 6px 10px;
+    cursor:pointer
+}
+.onePostLikerFrame:hover{
+    background-color: #f9fafb;
+}
+.PostLikerImageFrame{
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    border: 1px solid;
+}
+.PostLikerImage{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+.PostLikerNameFrame{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.PostLikerName{
+    margin-left: 5px;
+    font-size: 20px;
+}
+/*會員發文*/
+.imageFrame{
+    position: relative;
+    width: 500px;
+    height: 650px;
+    background-color: #fff;
+    border-radius: 15px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+.locationFrame{
+    position: relative;
+    width: 500px;
+    height: 580px;
+    background-color: #fff;
+    border-radius: 15px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+.searclocationText, .imageText, .postLikerText, .createSocietyText{
+    width: 100%;
+    height: 36px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    font-weight: bolder;
+    background-color: #accaf2;
+    border-radius: 15px 15px 0 0
+}
+.searclocationTextFrame, .imageTextFrame, .postLikerTextFrame, .createSocietyTextFrame{
+    display: flex;
+}
+.closelocation, .closeImage, .closePostLiker, .closeCreateSociety{
+    position: absolute;
+    right:-2px;
+    cursor: pointer;
+    user-select: none;
+}
+.searchlocationFrame, .selectImageFrame{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.searchlocation{
+    width: 340px;
+    height:26px;
+    border-radius: 100px;
+    border: 0;
+    padding: 7px 55px 7px 55px;
+    line-height:26px ;
+    background-color: #f0f2f5;
+    font-size: 18px;
+    background-image: url("/icon/search.png");
+    background-position: 10px center;
+    background-repeat: no-repeat;
+}
+.searchIcon{
+    width: 40px;
+    margin: 10px 10px;
+}
+.searchresultframeback{
+    width: auto;
+    height: 468px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+.searchresultframeback::-webkit-scrollbar{
+    width: 10px;
+}
+.searchresultframeback::-webkit-scrollbar-thumb {
+    background-color: #cccccc;
+    border: 1px solid slategrey;
+    border-radius: 5px;
+}
+.searchresultframe{
+    display: flex;
+    border-bottom: 1px solid#aaaaaa;
+    cursor: pointer;
+}
+.searchresultTextframe{
+    margin: auto 0;
+}
+.imagePreviewframe{
+    width: 500px;
+    height: 520px;
+}
+.imagePreview{
+    width: 500px;
+    height: 520px;
+    background-color: #d9e8fc;
+}
+.postOutput{
+    width: 250px;
+    height: 250px;
+    object-fit: cover;
+}
+.buttonFrame{
+    width: 500px;
+    height: 50px;
+    text-align: center;
+    margin: 5px 0;
+}
+.errorMessage {
+    color: #f00;
+    margin: 0 auto;
+    text-align: center;
+    top: 100px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    position: absolute;
+    user-select: none;
+}
+/*zoomimage*/
+.zoomimageFrame{
+    width: 600px;
+    height: 600px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    right: 0px;
+    top: 64px;
+    left: 0px;
+    bottom: 0px;
+    position: absolute;
+    margin: 100px auto;
+    background-color: #ddd;
+}
+.zoomimage{
+    width: auto;
+    height: auto;
+    position: relative;
+}
+.ImageZoom{
+    max-width: 500px;
+    height: auto;
+    object-fit: cover;
+}
+.closeImageZoom{
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    cursor:pointer;
 }
