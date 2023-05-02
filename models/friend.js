@@ -85,7 +85,7 @@ const friendModel = {
             connect.release()
         }
     },
-    checkFriend : async(userId) => {
+    checkFriends : async(userId) => {
         const connect = await promisePool.getConnection()
         try{
             const sql = `
@@ -109,6 +109,29 @@ const friendModel = {
             let params = [sendMemberId, receiveMember];
             let [[result]]= await connect.query(sql, params);
             return result
+        }finally{
+            connect.release()
+        }
+    },
+    friends : async(userId) => {
+        const connect = await promisePool.getConnection()
+        try{
+            const sql = `SELECT COUNT(*) FROM friend WHERE userId = ?  AND status = "ACCEPTED"; `;
+            let params = [userId];
+            let [[result]]= await connect.query(sql, params);
+            return result
+        }finally{
+            connect.release()
+        }
+    },
+    deleteFriend : async(userId, friendId) => {
+        const connect = await promisePool.getConnection()
+        try{
+            const sql =`DELETE FROM friend WHERE userId = ? AND friendId = ? AND status = "ACCEPTED";`
+            let params = [userId, friendId];
+            await connect.query(sql, params);
+            params = [friendId, userId];
+            await connect.query(sql, params);
         }finally{
             connect.release()
         }
