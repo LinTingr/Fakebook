@@ -1,0 +1,1137 @@
+div{
+    word-wrap: break-word;
+}
+.Fakebookloading {
+    display: block;
+    position: fixed;
+    z-index: 9999;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #ffffff;
+    opacity: 0.8;
+    transition: 0.7s ;
+}
+.FakebookLoadingText, .postloadingText{
+    margin-right: 10px;
+}
+.postloading{
+    display: none;
+    align-items: center;
+    justify-content: center;
+    width: 600px;
+    height: 50px;
+    margin: 0 auto;
+}
+.backgroundFrame{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 999;
+}
+.color{
+    background-color: #dff0fe;
+}
+.societyPostPicture, .societyPostLocation{
+    width: 100px;
+    height: 40px;
+    margin-left: 30px;
+    display: flex;
+    cursor: pointer;
+    user-select: none;
+}
+.hover:hover{
+    background-color: #f2f2f2;
+}
+.locationFrame{
+    position: relative;
+    width: 500px;
+    height: 580px;
+    background-color: #fff;
+    border-radius: 15px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+.postLikerFrame{
+    position: relative;
+    width: 300px;
+    height: 300px;
+    background-color: #fff;
+    border-radius: 15px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+.allPostLikerFrame{
+    width: 300px;
+    height: 246px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+.allPostLikerFrame::-webkit-scrollbar {
+    width: 10px;
+}
+.allPostLikerFrame::-webkit-scrollbar-thumb {
+    background-color: #cccccc;
+    border: 1px solid slategrey;
+    border-radius: 5px;
+}
+
+.onePostLikerFrame{
+    display: flex;
+    margin: 6px 0px 6px 10px;
+    cursor:pointer
+}
+.onePostLikerFrame:hover{
+    background-color: #f9fafb;
+}
+.PostLikerImageFrame{
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    border: 1px solid;
+}
+.PostLikerImage{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+.PostLikerNameFrame{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.PostLikerName{
+    margin-left: 5px;
+    font-size: 20px;
+}
+.imageFrame{
+    position: relative;
+    width: 500px;
+    height: 650px;
+    background-color: #fff;
+    border-radius: 15px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+.searclocationText, .imageText, .postLikerText, .createSocietyText{
+    width: 100%;
+    height: 36px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    font-weight: bolder;
+    background-color: #accaf2;
+    border-radius: 15px 15px 0 0
+}
+.searclocationTextFrame, .imageTextFrame, .postLikerTextFrame, .createSocietyTextFrame{
+    display: flex;
+}
+.closelocation, .closeImage, .closePostLiker, .closeCreateSociety{
+    position: absolute;
+    right:-2px;
+    cursor: pointer;
+    user-select: none;
+}
+.searchlocationFrame, .selectImageFrame{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.searchlocation{
+    width: 340px;
+    height:26px;
+    border-radius: 100px;
+    border: 0;
+    padding: 7px 55px 7px 55px;
+    line-height:26px ;
+    background-color: #f0f2f5;
+    font-size: 18px;
+    background-image: url("/icon/search.png");
+    background-position: 10px center;
+    background-repeat: no-repeat;
+}
+.searchIcon{
+    width: 40px;
+    margin: 10px 10px;
+}
+.searchresultframeback{
+    width: auto;
+    height: 468px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+.statuslist{
+    display: flex;
+    justify-content: space-between;
+}
+.errorMessage{
+    color: #f00;
+    margin: 0 auto;
+    text-align: center;
+    top: 100px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    position: absolute;
+    user-select: none;
+}
+.imagePreviewframeback{
+    width: auto;
+    height: 555px;
+    background-color: #d9e8fc;
+}
+.searchresultframeback::-webkit-scrollbar{
+    width: 10px;
+}
+.searchresultframeback::-webkit-scrollbar-thumb {
+    background-color: #cccccc;
+    border: 1px solid slategrey;
+    border-radius: 5px;
+}
+.searchresultframe{
+    display: flex;
+    border-bottom: 1px solid#aaaaaa;
+    cursor: pointer;
+}
+.searchresultTextframe{
+    margin: auto 0;
+}
+.imagePreviewframe{
+    width: 500px;
+    height: 520px;
+}
+.imagePreview{
+    width: 500px;
+    height: 520px;
+    background-color: #d9e8fc;
+}
+.output{
+    width: 250px;
+    height: 250px;
+    object-fit: cover;
+}
+.buttonFrame{
+    width: 500px;
+    height: 50px;
+    text-align: center;
+    margin: 5px 0;
+}
+.updateBackgroundFrame{
+    position: relative;
+    width: 1250px;
+    height: 500px;
+    background-color: #fff;
+    margin: 60px auto;
+    border-radius: 15px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+.updateBackgroundTextFrame{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+}
+.backgroundtext{
+    margin: 0 auto;
+    width: 100%;
+    height: 36px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    font-weight: bolder;
+    background-color: #accaf2;
+    border-radius: 15px 15px 0 0;
+}
+.closeX{
+    position: absolute;
+    width: 30px;
+    right: 0px;
+    cursor: pointer;
+}
+.backgroundUpdateFrame{
+    background-color: #d9e8fc;
+    border-radius: 0 0 15px 15px;
+}
+.backgroundUpdate{
+    width: 1250px;
+    height: 40px;
+    overflow: hidden;
+    position: relative;
+    display: inline-block;
+    text-align: center;
+    align-items: center;
+    border-radius: 10px;
+    line-height: 37px;
+    background-color: #dbe7f2;
+}
+.backgroundUpload{
+    position: absolute;
+    opacity: 0;
+    filter: alpha(opacity=0);
+    top: 0;
+    right: 0;
+    margin: auto;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;  
+}
+.outPutFrame{
+    width: 500px;
+    height: 402px;
+    background-color: #d9e8fc;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 0 0 15px 15px;
+}
+.backgroundOutPutFrame{
+    width: 1250px;
+    height: 450px;
+    background-color: #d9e8fc;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 0 0 15px 15px;
+}
+/* .output{
+    width: 300px;
+    height: 300px;
+} */
+.backgroundOutput{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.backgroundButtonFrame{
+    width: 1250px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    bottom: 0px;
+}
+.none{
+    display: none;
+}
+.societyFrame{
+    width: 100%;
+    height: 661px;
+    background-color: #f0f2f5;
+    border-bottom: 1px solid #9a9a9a;
+}
+.societyBackgroundFrameDiv{
+    width: 1250px;
+    height: 450px;
+    margin: auto;
+    position: relative;
+}
+.societyBackground{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.societyEditBackgroundButtonFrame{
+    width: 1250px;
+    height: 60px; 
+    display: flex;
+    align-items: center;
+    position: absolute;
+    bottom: 0px;
+}
+.societyEditBackgroundButton{
+    width: 160px;
+    height: 36px;
+    position: absolute;
+    right: 30px;
+    background-color: #fff;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    user-select: none;
+    cursor: pointer;
+    box-shadow: 0 0 1px #000;
+}
+.societyEditBackgroundButton:hover{
+    background-color: #f2f2f2;
+}
+.societyBackgroundFrame{
+    width: 1250px;
+    height: 450px;
+}
+.society{
+    width: 1250px;
+    height: 150px;
+    margin: auto;
+    background-color: #fff;
+    display: flex;
+    border-bottom: 1px solid #9a9a9a;
+}
+
+.societyNameandMember{
+    width: 1100px;
+    height: 98px;
+    margin: 32px 20px 16px;
+}
+.societyName{
+    font-size: 30px;
+}
+.societyMember{
+    display: inline-block;
+    margin-right: 5px;
+    font-size: 20px;
+}
+.societyInvite, .societyAdd{
+    width: auto;
+    height: 36px;
+    background-color: #1b74e4;
+    color: #fff;
+    border-radius: 5px;
+    user-select: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 50px;
+    padding: 0 12px;
+    cursor: pointer;
+}
+.societyInvite:hover, .societyAdd:hover{
+    background-color: #1a6ed8;
+}
+
+.listFrame{
+    width: 100%;
+    height: 60px;
+    background-color: #f0f2f5;
+}
+.list, .noMemberList{
+    width: 1250px;
+    display: flex;
+    margin: 0 auto;
+    flex: none;
+    background-color:#fff;
+    position: relative;
+}
+.listitem{
+    width: auto;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 10px;
+    cursor: pointer;
+    user-select: none;
+}
+.itemhover:hover{
+    background-color: #f2f2f2;
+}
+.deleteList{
+    position: absolute;
+    right: 0px;
+    margin: 0 5px 0 0;
+}
+.deleteIconFrame{
+    width: 60px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    user-select: none;
+}
+.deleteIconFrame:hover{
+    background-color: #f2f2f2;
+}
+.deleteFrame{
+    position: absolute;
+    width: 108px;
+    height: 35px;
+    bottom: -30px;
+    left: -45px;
+    background-color: #fff;
+    box-shadow: 0 0 5px #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    cursor: pointer;
+    user-select: none;
+}
+.deleteFrame:hover{
+    background-color: #f2f2f2;
+}
+.backAboutSociety{
+    width: 100%;
+    height: auto;
+    background-color: #f0f2f5;
+}
+.allAboutSocietyFrame{
+    width: 1250px;
+    height: auto;
+    background-color: #f0f2f5;
+    margin: 0 auto;
+}
+.aboutSocietyFrame{
+    width: auto;
+    height: auto;
+    min-height: 350px;
+    margin: 16px 0 0;
+    padding: 0 16px;
+    display: flex;
+    justify-content: center;
+}
+/* */
+.societyArticle{
+    width: 100%;
+    height: auto;
+}
+.societyPostBlock{
+    display: flex;
+    align-items: center;
+}
+.societyPostFrame{
+    width: 680px;
+    height: auto;
+    background-color: #fff;
+    border-radius: 10px;
+    margin: 0 0 16px;
+    padding: 8px 0 ;
+}
+.postSocietyArea{
+    width: 680px;
+    height: auto;
+    display: flex;
+}
+.memberPostAvatar{
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    border: 1px solid white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.memberPostAvatarImg{
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+}
+.societyPostTextInput{
+    width: 540px;
+    height: 65px;
+    resize: none;
+    border-radius: 10px;
+    outline: none;
+    padding: 8px 12px;
+    margin-left: 10px;
+    background-color: #e1e1e2;
+    font-size: 16px;
+    font-weight: 500;
+}
+.societyPostTextInput::-webkit-scrollbar{
+    width: 10px;
+}
+.societyPostTextInput::-webkit-scrollbar-thumb {
+    background-color: #cccccc;
+    border: 1px solid slategrey;
+    border-radius: 5px;
+}
+.selectlocationFrame{
+    width: auto;
+    height: 30px;
+    display: flex;
+    justify-content: flex-end;
+    margin: 5px 25px;
+}
+.selectlocation{
+    width: auto;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color:#1d64c2;
+    margin-right: 10px;
+}
+.locationClose{
+    width:15px;
+    height: 15px;
+    cursor: pointer;
+}
+.linklocation{
+    display: flex;
+}
+.societyPostfunction{
+    display: flex;
+}
+.societyPostPicture, .societyPostLocation{
+    width: 100px;
+    height: 40px;
+    margin-left: 30px;
+    display: flex;
+    cursor: pointer;
+    user-select: none;
+}
+.hover:hover{
+    background-color: #f2f2f2;
+}
+.Pictext{
+    width: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    user-select: none;
+}
+.societyLastClickPost{
+    background-color:#dff0fe; 
+    border-radius:10px; 
+    margin-left: 340px;
+    cursor: pointer;
+}
+.postContainer{
+    width: 680px;
+    height: auto;
+    background-color: #fff;
+    border-radius: 10px;
+    margin: 0 0 16px;
+    padding: 8px 0 8px;
+}
+.postAvatar{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 1px solid;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.postmemberLink{
+    width: 50px;
+    height: 50px;
+}
+.userAvatarImg{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+.postAvatarMembername{
+    width: 680px;
+    height: 52px;
+    display: flex;
+}
+.postmembername{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 10px;
+    font-size: 25px;
+}
+.postMemberlocationlink{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.postMemberlocation{
+    width: auto;
+    height: auto;
+    color:#1d64c2;
+    display: contents;
+}
+.postcontext{
+    width: 650px;
+    height: auto;
+    margin: 0 auto;
+    line-height: 30px;
+    font-size: 16px;
+    font-weight: 500;
+    white-space: pre-wrap;
+}
+.postimageFrame{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 680px;
+    height: 220px;
+}
+.postImage{
+    width: 32%;
+    height: 200px;
+    margin: auto;
+}
+.likeMessageiconCountFrame{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 10px 10px;
+}
+.likeiconFrame, .messiconFrame{
+    display: flex;
+    cursor: pointer;
+}
+.likeCount, .messageCount{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 5px;
+}
+.likeMessageiconFrame{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.likeclickFrame, .messagechatFrame, .shareclickFrame{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 49%;
+    height: 32px;
+    cursor: pointer;
+    user-select: none;
+}
+.AllchatFrame{
+    width: 680px;
+    height: auto;
+    display: flex;
+}
+.watchmorechatmessage{
+    margin: 0 10px 10px 10px;
+    cursor: pointer;
+}
+.avatarchatmessageFrame{
+    display: flex;
+    margin: 5px 0;
+}
+
+.userAvatar{
+    width: 35px;
+    height: 35px;
+    border: 1px solid;
+    border-radius: 50%;
+    margin: 0 10px 10px 10px;
+}
+.userChatmessageFrame{
+    max-width: 580px;
+    width: auto;
+    height: auto;
+    min-height: 45px;
+    padding: 8px 12px;
+    border-radius: 15px;
+    background-color: #f0f2f5;
+    line-height: 23px;
+}
+.userChatmessageName{
+    font-size: 18px;
+}
+.userChatmessageMess{
+    font-size: 15px;
+}
+.chatBoxFrame{
+    margin: 0 10px;
+    display: flex;
+}
+.chatboxAvatarFrame{
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    border: 1px solid;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.userAvatarimgElement{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+.chatboxInputFrame{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.chatboxInput{
+    padding: 0 10px;
+    width: 580px;
+    height: 30px;
+    margin: 0 10px;
+    border-radius: 30px;
+    border: 0;
+    background-color: #f0f2f5;
+}
+/* */
+.aboutSociety{
+    display: flex;
+}
+.introductionFrame{
+    width: 490px;
+    height: auto;
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 10px 0px;
+}
+.introductionText{
+    width: auto;
+    height: 26px;
+    padding: 10px 15px;
+    font-size: 22px;
+    font-weight: 800;
+}
+.societyIntroductionFrame{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.societyIntroduction{
+    width: 450px;
+    height: auto;
+    white-space: pre-wrap;
+}
+.societyIntroduceFrame{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.societyIntroduce{
+    width: 450px;
+    height: auto;
+    text-align: center;
+}
+.societyIntroduceFrame, .editDetailsFrame{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0;
+
+}
+.personalProfile:hover, .editDetails:hover, .confirmbutton:hover, .cancelbutton:hover{
+    background-color: #d8dadf;
+}
+.addSocietyIntroduceframe{
+    margin: 0 auto;
+}
+.addSocietyIntroduce{
+    width: 425px;
+    height: 80px;
+    font-size: 16px;
+    font-weight: 500;
+    resize: none;
+    border-radius: 10px;
+    outline: none;
+    padding: 8px 12px;
+    margin: 0px 20px;
+    background-color: #e1e1e2;
+}
+.confirmFrame{
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    margin-top: 5px;
+    margin-right: 20px;
+    user-select: none;
+}
+.confirmbutton{
+    text-align: center;
+    display: 80px;
+    width: 40px;
+    border-radius: 10px;
+    margin: 0 10px;
+    background-color: #8ea5e5;
+    cursor: pointer;
+    user-select: none;
+}
+.cancelbutton{
+    text-align: center;
+    display: 80px;
+    width: 40px;
+    border-radius: 10px;
+    margin: 0 10px;
+    background-color: #b6b7b9;
+    cursor: pointer;
+}
+
+.societyIntroduce{
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 450px;
+    height: 36px;
+    background-color: #e4e6eb;
+    border-radius: 10px;
+}
+.privacyDetailsFrame, .HideDetailsFrame{
+    width: 450px;
+    height: 45px;
+    margin-top: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.privacyImageFrame, .HideImageFrame{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.privacyTextFrame, .HideTextFrame{
+    width: 368px;
+    height: 45px;
+    margin-left: 10px;
+}
+.privacyContent, .HideContent{
+    color: #646464;
+}
+/* .imageFrame{
+    width: 490px;
+    height: 530px;
+} */
+.memberRequest{
+    width: 1220px;
+    height: auto;
+    min-height: 600px;
+    background-color: #fff;
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 100px;
+    border-radius: 5px;
+}
+.one{
+    width: 600px;
+    height: 100px;
+    background-color: #f0f2f5;
+    margin: 10px 5px;
+    display: flex;
+}
+.memberRequestAvatarFrame{
+    width: 70px;
+    height: 70px;
+    margin: auto 0;
+}
+.memberRequestAvatar{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+.memberRequestNameFrame{
+    width: 380px;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    padding-left: 10px;
+}
+.memberRequestName{
+    font-size: 20px;
+}
+
+.memberRequestConfirmFrame{
+    width: 130px;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.memberRequestConfirm{
+    width: 60px;
+    height: auto;
+    background-color: #1a6ed8;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    cursor: pointer;
+    user-select: none;
+}
+.memberRequestReject{
+    width: 60px;
+    height: auto;
+    background-color: #d8dadf;
+    color: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    user-select: none;
+}
+/*社團成員*/
+.allsocietyMemberFrame{
+    width: 1218px;
+    height: auto;
+    background-color: #fff;
+    margin-bottom: 100px;
+    display: flex;
+    flex-wrap: wrap;
+    border-radius: 10px
+}
+.oneMemberFrame{
+    width: 600px;
+    height: 100px;
+    background-color: #fff;
+    display: flex;
+    margin: 9px 3px;
+    border: 1px solid #f7f7f7;
+    border-radius: 10px;
+
+}
+.oneMemberAvatarFrame{
+    width: 100px;
+    height: 100px;
+    border-radius: 10px;
+}
+.oneMemberAvatar{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+
+}
+.oneMemberNameFrame{
+    width: 460px;
+    height: 100px;
+    display: flex;
+    align-items: center;
+}
+.oneMemberName{
+    margin-left: 10px;
+    font-size: 24px;
+}
+.oneMemberSettingFrame{
+    width: 30px;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 10px;
+    position: relative;
+}
+.deleteMemberButton:hover{
+    cursor: pointer;
+    background-color: #f2f2f2;
+    border-radius: 5px;
+}
+/*deletefriend*/
+.deleteMemberButtonFrame{
+    display: none;
+    width: 100px;
+    height: 30px;
+    position: absolute;
+    right: 0px;
+    top: 65px;
+    cursor: pointer;
+    user-select: none;
+    background-color: #ffffff;
+    box-shadow: 0 0 5px #000;
+    border-radius: 5px;
+    justify-content: center;
+    align-items: center;
+}
+.deleteMemberButtonFrame:hover{
+    background-color: #f2f2f2;
+}
+/*邀請*/
+.societyInviteFrame{
+    position: relative;
+    width: 450px;
+    height: 580px;
+    background-color: #fff;
+    border-radius: 15px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+.societyInviteTextFrame{
+    display: flex;
+}
+.societyInviteText{
+    width: 100%;
+    height: 36px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    font-weight: bolder;
+    background-color: #accaf2;
+    border-radius: 15px 15px 0 0
+}
+.closeInvite{
+    position: absolute;
+    right:-2px;
+    cursor: pointer;
+    user-select: none;
+}
+.allFriendInviteFrame{
+    width: 450px;
+    height: 515px;
+    margin-top: 30px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    border-radius: 0 0 15px 15px;
+}
+.allFriendInviteFrame::-webkit-scrollbar {
+    width: 10px;
+}
+.allFriendInviteFrame::-webkit-scrollbar-thumb {
+    background-color: #cccccc;
+    border: 1px solid slategrey;
+    border-radius: 5px;
+}
+.oneFriendFrame{
+    display: flex;
+    margin: 6px 10px 6px 10px;
+}
+.oneFriendImageFrame{
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    border: 1px solid;
+}
+.oneFriendImage{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+.oneFriendNameFrame{
+    display: flex;
+    align-items: center;
+    /* justify-content: center; */
+    width: 320px;
+}
+.oneFriendName{
+    margin-left: 5px;
+    font-size: 20px;
+}
+.inviteFrame{
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    background-color: #1a6ed8;
+    padding: 0 5px;
+    width: 50px;
+    height: 30px;
+    border-radius: 5px;
+    margin: auto;
+}
+.invite{
+    color: #fff;
+}

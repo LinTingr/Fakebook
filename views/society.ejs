@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fakebook</title>
+    <link rel="stylesheet" type="text/css" href="/CSS/society.css">
+</head>
+<body>
+    <%- include("common") %>
+    <div class="Fakebookloading">
+        <div class="FakebookLoadingText">Loading</div>
+        <img src="/icon/loading.gif" />
+    </div>
+    <div class="backgroundFrame" style="display: none;">
+        <div class="backUpdateBackgroundFrame none">
+            <div class="updateBackgroundFrame">
+                <div class="updateBackgroundTextFrame">
+                    <div class="backgroundtext">更新封面照</div>
+                    <img src="/icon/close.png" class="closeX">
+                </div>
+                <hr>
+                <div class="backgroundUpdateFrame">
+                    <div class="backgroundUpdate">
+                        <span>上傳照片</span>
+                        <input type="file" class="backgroundUpload" accept="image/*">
+                    </div>
+                    <div class="backgroundOutPutFrame"></div>
+                    <div class="backgroundButtonFrame">
+                        <button type="button"class="backgroundButton">送出</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="societyInviteFrame" style="display: none;">
+            <div class="societyInviteTextFrame">
+                <div class="societyInviteText">邀請</div>
+                <div><img src="/icon/close.png" width="32px" class="closeInvite"></div>
+            </div>
+            <div class="allFriendInviteFrame"></div>
+        </div>
+        <!-- location -->
+        <div class="locationFrame none">
+            <div class="searclocationTextFrame">
+                <div class="searclocationText">搜尋地點</div>
+                <div><img src="/icon/close.png" width="32px" class="closelocation"></div>
+            </div>
+            <hr>
+            <div class="searchlocationFrame">
+                <input type="text" class="searchlocation">
+            </div>
+            <hr>
+            <div class="searchresultframeback"></div>
+        </div>
+        <!-- image -->
+        <div class="imageFrame none">
+            <div class="imageTextFrame">
+                <div class="imageText">上傳圖片</div>
+                <div><img src="/icon/close.png" width="32px" class="closeImage"></div>
+            </div>
+            <hr>
+            <div class="selectImageFrame">
+                <input type="file" class="upload" accept="image/*" multiple="multiple">
+            </div>
+            <hr>
+            <div class="imagePreviewframeback">
+                <div class="errorMessage none">數量最多三張!!!!!!</div>
+                <div class="imagePreviewframe">
+                    <div class="imagePreview"></div>
+                </div>
+                <div class="buttonFrame"><button type="button"class="button">確認</button></div>
+            </div>
+        </div>
+        <div class="postLikerFrame none">
+            <div class="postLikerTextFrame">
+                <div class="postLikerText">案讚的人</div>
+                <div><img src="/icon/close.png" width="32px" class="closePostLiker"></div>
+            </div>
+            <hr>
+            <div class="allPostLikerFrame"></div>
+        </div>
+    </div>
+    <div class="backAboutSociety">
+        <div class="societyFrame">
+            <div class="societyBackgroundFrameDiv">
+                <div class="societyBackgroundFrame">
+                    <img src="/icon/white.jpg" class="societyBackground">
+                </div>
+                <div class="societyEditBackgroundButtonFrame" style="display: none;">
+                    <div class="societyEditBackgroundButton">編輯封面相片</div>
+                </div>
+            </div>
+            <div class="society">
+                <div class="societyNameandMember">
+                    <div class="societyName">社團名稱</div>
+                    <div class="societyMember"></div>
+                </div>
+                <div class="societyInvite" style="display: none;">
+                    <div class="Invite"><img src="/icon/pluswhite.png" width="16px" >邀請</div>
+                </div>
+                <div class="societyAdd" style="display: none;">
+                    <div class="Add"><img src="/icon/pluswhite.png" width="16px" class="addicon">加入社團</div>
+                </div>
+            </div>
+            <div class="listFrame">
+                <div class="list">
+                    <div class="listitem itemhover talk">討論</div>
+                    <div class="listitem itemhover societyMemberForm">成員</div>
+                    <div class="listitem itemhover applicationForm" style="display: none;">社團加入申請</div>
+                    <div class="deleteList" style="display: none;">
+                        <div class="deleteIconFrame"><img src="/icon/ellipsis.png" ></div>
+                        <div class="deleteFrame" style="display: none;">
+                            <div class="deleteButton">刪除社團</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="noMemberList" style="display: none;">
+                    <div class="listitem itemhover">關於</div>
+                    <div class="listitem itemhover">討論</div>
+                </div>
+            </div>
+        </div>
+        <div class="allAboutSocietyFrame">
+            <div class="aboutSocietyFrame">
+                <div class="societyArticle" >
+                    <div class="societyPostBlock">
+                        <div class="societyPostFrame">
+                            <div class="postSocietyArea">
+                                <a href="/member" class = "nameLink">
+                                    <div class="memberPostAvatar">
+                                        <img src="" class="memberPostAvatarImg">
+                                    </div>
+                                </a>
+                                <textarea class="societyPostTextInput" placeholder="留個言吧......"></textarea>
+                            </div>
+                            <div class="findlocation"></div>
+                            <hr>
+                            <div class="societyPostfunction">
+                                <div class="societyPostPicture hover"><img src="/icon/pictureicon.png" alt=""><div class="Pictext">相片</div></div>
+                                <div class="societyPostLocation hover"><img src="/icon/placemarker.png" alt=""><div class="Pictext">地點</div></div>
+                                <div class="societyLastClickPost Pictext">發佈</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="allArticle"></div>
+                    <div class="postloading">
+                        <div class="postloadingText">Loading</div>
+                        <img src="/icon/loading3.gif" />
+                    </div>
+                </div>
+                <div class="aboutSociety" >
+                    <div class="introductionImageAbout">
+                        <div class="introductionFrame">
+                            <div class="introductionText">
+                                <span>關於</span>
+                            </div>
+                            <div class="societyIntroductionFrame">
+                                <div class="societyIntroduction"></div>
+                            </div>
+                            <div class="societyIntroduceFrame">
+                                <span class="societyIntroduce">新增說明</span>
+                            </div>
+                            <div class="addSocietyIntroduceframe none">
+                                <textarea class="addSocietyIntroduce" placeholder="向大家介紹你的社團"></textarea>
+                                <div class="confirmFrame">
+                                    <div class="confirmbutton">儲存</div>
+                                    <div class="cancelbutton">取消</div>
+                                </div>
+                            </div>
+                            <div class="privacyDetailsFrame">
+                                <div class="privacyImageFrame">
+                                    <img src="/icon/lock.png">
+                                </div>
+                                <div class="privacyTextFrame">
+                                    <div class="privacyText">私密</div>
+                                    <div class="privacyContent">只有成員可以查看社團成員名單和他們發佈的貼文。</div>
+                                </div>
+                            </div>
+                            <div class="HideDetailsFrame">
+                                <div class="HideImageFrame">
+                                    <img src="/icon/eye.png">
+                                </div>
+                                <div class="HideTextFrame">
+                                    <div class="HideText">開放搜尋</div>
+                                    <div class="HideContent">所有人都能找到這個社團。</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="societyMemberFrame" style="display: none;">
+                    <div class="allsocietyMemberFrame"></div>
+                </div>
+                <div class="memberRequestFrame" style="display: none;">
+                    <div class="memberRequest"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="/JS/friend.js"></script>
+    <script src="/JS/common.js"></script>
+    <script src="/JS/society.js"></script>
+</body>
+</html>
