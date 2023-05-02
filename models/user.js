@@ -27,7 +27,18 @@ const userModel = {
         try{
             let sql = "INSERT INTO user(username, useremail, userpassword, useravatar) VALUES (?, ?, ?, ?);"
             let params = [name, email, password, useravatar];
-            await connect.query(sql, params);
+            const [result] = await connect.query(sql, params);
+            return result.insertId; 
+        }finally{
+            connect.release()
+        }
+    },
+    checkUser: async(userId) =>{
+        const connect = await promisePool.getConnection()
+        try{
+            let sql = "SELECT userId from user where userId = ?;"
+            let [[result]] = await connect.query(sql, userId);
+            return result
         }finally{
             connect.release()
         }

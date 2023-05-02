@@ -1,3 +1,7 @@
+body{
+    margin: 0;
+    padding: 0;
+}
 .none{
     display: none;
 }
@@ -23,14 +27,14 @@
     height: 34px;
     display: flex;
     align-items: center;
-    color:#448899;
+    color:#1877f2;
     font-size:30px;
     font-weight: 700;
     background-color: #fff;
 }
 .titleHead a{
     text-decoration: none;
-    color: #448899;
+    color:#1877f2;
 }
 .signinup, .MemberSystem{
     width:120px;
@@ -45,6 +49,14 @@
     border-radius: 5px;
     background-color: #e5e5e5;
 }
+.backgroundImage{
+    width: 100%;
+    height: 100%;
+    -o-object-fit: cover;
+    object-fit: cover;
+    position: absolute;
+    z-index: 1;
+}
 .signinBack{
     width: 100%;
     height: 100%;
@@ -52,12 +64,12 @@
     display: flex;
     justify-content: center;
     /* background-color: rgba(60, 60, 60, 0.5); */
-    z-index: 3;
+    z-index: 999;
 }
 .signinFrame{
     width: 340px;
     height: auto;
-    top: 80px;
+    top: 300px;
     position: absolute;
     box-shadow: 0 4px 60px #aaaaaa;
     background-color: #fff;
@@ -66,20 +78,20 @@
 .signupFrame{
     width: 340px;
     height: auto;
-    margin: 80px 550px;
+    margin: 280px 550px;
     position: absolute;
     box-shadow: 0 4px 60px #aaaaaa;
     background-color: #fff;
     border-radius: 6px;
 }
-.signinHr, .signupHr{
+/* .signinHr, .signupHr{
     border: 0;
     margin: 0;
     width: 340px;
     height: 10px;
     background: linear-gradient(270deg, #337788 0%, #66AABB 100%);
     border-radius: 6px 6px 0px 0px;
-}
+} */
 .signinMain, .signupMain{
     width: 310px;
     height: auto;
@@ -119,7 +131,7 @@
 .signinBtn, .signupBtn{
     width: 310px;
     height: 47px;
-    background-color: #448899;
+    background-color: #638ca6;
     border: 0;
     margin: 15px auto 0;
     display: flex;
@@ -136,7 +148,7 @@
     text-align: center;
 }
 .signinBtn:hover, .signupBtn:hover{
-    background-color: #5599aa;
+    background-color: #8fadbf;
 }
 .signinBtn:active, .signupBtn:active {
     transform: translateY(1px) scale(.98);
@@ -152,9 +164,10 @@
     color: #000;
     cursor: pointer;
 }
-.messageRespond{
+.messageSignupRespond, .messageSigninRespond{
     width: 310px;
     height: 22px;
     text-align: center;
     margin: 10px auto;
+    color: #f00;
 }
