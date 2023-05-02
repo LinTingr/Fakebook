@@ -3,6 +3,32 @@ body, ul, ol{
     padding: 0;
     background-color: #f0f2f5;
 }
+.Fakebookloading {
+    display: block;
+    position: fixed;
+    z-index: 9999;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #ffffff;
+    opacity: 0.8;
+    transition: 0.7s ;
+}
+.FakebookLoadingText, .postloadingText{
+    margin-right: 10px;
+}
+.postloading{
+    display: none;
+    align-items: center;
+    justify-content: center;
+    width: 600px;
+    height: 50px;
+    margin: 0 auto;
+}
 div{
     word-wrap: break-word;
 }
@@ -99,7 +125,9 @@ div{
     height: auto;
 }
 .backgroundFrame{
-    position: absolute;
+    position: fixed;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
     background-color: rgba(255, 255, 255, 0.6);
@@ -115,6 +143,62 @@ div{
     border-radius: 15px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
+.postLikerFrame{
+    position: relative;
+    width: 300px;
+    height: 300px;
+    background-color: #fff;
+    border-radius: 15px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+.allPostLikerFrame{
+    width: 300px;
+    height: 246px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+.allPostLikerFrame::-webkit-scrollbar {
+    width: 10px;
+}
+.allPostLikerFrame::-webkit-scrollbar-thumb {
+    background-color: #cccccc;
+    border: 1px solid slategrey;
+    border-radius: 5px;
+}
+
+.onePostLikerFrame{
+    display: flex;
+    margin: 6px 0px 6px 10px;
+    cursor:pointer
+}
+.onePostLikerFrame:hover{
+    background-color: #f9fafb;
+}
+.PostLikerImageFrame{
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    border: 1px solid;
+}
+.PostLikerImage{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+.PostLikerNameFrame{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.PostLikerName{
+    margin-left: 5px;
+    font-size: 20px;
+}
 .imageFrame{
     position: relative;
     width: 500px;
@@ -123,7 +207,7 @@ div{
     border-radius: 15px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
-.searclocationText, .imageText{
+.searclocationText, .imageText, .postLikerText, .createSocietyText{
     width: 100%;
     height: 36px;
     display: flex;
@@ -132,16 +216,16 @@ div{
     font-size: 24px;
     font-weight: bolder;
     background-color: #accaf2;
+    border-radius: 15px 15px 0 0
 }
-.searclocationTextFrame, .imageTextFrame{
+.searclocationTextFrame, .imageTextFrame, .postLikerTextFrame, .createSocietyTextFrame{
     display: flex;
 }
-.closelocation, .closeImage{
+.closelocation, .closeImage, .closePostLiker, .closeCreateSociety{
     position: absolute;
     right:-2px;
     cursor: pointer;
     user-select: none;
-
 }
 .searchlocationFrame, .selectImageFrame{
     display: flex;
@@ -171,7 +255,25 @@ div{
     overflow-y: scroll;
     overflow-x: hidden;
 }
+.searchresultframeback::-webkit-scrollbar{
+    width: 10px;
+}
+.searchresultframeback::-webkit-scrollbar-thumb {
+    background-color: #cccccc;
+    border: 1px solid slategrey;
+    border-radius: 5px;
+}
+.searchresultframe{
+    display: flex;
+    border-bottom: 1px solid#aaaaaa;
+    cursor: pointer;
+}
+.searchresultTextframe{
+    margin: auto 0;
+}
 .statuslist{
+    width: 300px;
+    height: 900px;
     display: flex;
     justify-content: space-between;
 }
@@ -190,22 +292,6 @@ div{
     width: auto;
     height: 555px;
     background-color: #d9e8fc;
-}
-.searchresultframeback::-webkit-scrollbar{
-    width: 10px;
-}
-.searchresultframeback::-webkit-scrollbar-thumb {
-    background-color: #cccccc;
-    border: 1px solid slategrey;
-    border-radius: 5px;
-}
-.searchresultframe{
-    display: flex;
-    border-bottom: 1px solid#aaaaaa;
-    cursor: pointer;
-}
-.searchresultTextframe{
-    margin: auto 0;
 }
 .imagePreviewframe{
     width: 500px;
@@ -252,6 +338,10 @@ div{
     padding: 8px 20px;
     cursor: pointer;
 }
+.homepageframe:hover, .member:hover{
+    background-color: #e4e6e9;
+    border-radius: 10px;
+}
 /* .member{
     padding: 6px 18px;
 } */
@@ -260,13 +350,6 @@ div{
     height: 24px;
     border-radius: 50%;
 }
-.forumavatar{
-    width: 20px;
-    height: 20px;
-    border:  1px solid;
-    border-radius: 50%;
-}
-
 .home, .membername{
     margin: 0 0 0 14px;
 }
@@ -311,8 +394,6 @@ div{
 .postTextInput{
     width: 540px;
     height: 80px;
-    font-size: 16px;
-    font-weight: 500;
     resize: none;
     border-radius: 10px;
     outline: none;
@@ -321,10 +402,6 @@ div{
     background-color: #e1e1e2;
     font-size: 16px;
     font-weight: 500;
-    transition-duration:1s;
-}
-.postTextInput:focus{
-    height: 150px;
 }
 .postTextInput::-webkit-scrollbar{
     width: 10px;
@@ -455,6 +532,7 @@ div{
     width: 32%;
     height: 200px;
     margin: auto;
+    cursor: pointer;
 }
 .likeMessageiconCountFrame{
     display: flex;
@@ -481,10 +559,14 @@ div{
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 33%;
+    width: 49%;
     height: 32px;
     cursor: pointer;
     user-select: none;
+}
+.likeclick{
+    width: 36px;
+    height: 36px;
 }
 .AllchatFrame{
     width: 680px;
@@ -581,7 +663,7 @@ div{
 }
 .PersonFrame{
     width: 340px;
-    height: 44px;
+    height: auto;
     padding: 0 8px;
 }
 .Person{
@@ -589,6 +671,12 @@ div{
     height: 44px;
     padding: 0 8px;
     display: flex;
+    align-items: center;
+    cursor: pointer;
+    user-select: none;
+}
+.Person:hover{
+    background-color: #e4e6e9;
 }
 .PersonAvatar{
     display: flex;
@@ -605,4 +693,192 @@ div{
 }
 .PersonName{
     padding: 12px 10px;
+}
+.createSociety, .society{
+    display: flex;
+    width: 260px;
+    height: 30px;
+    padding: 8px 20px;
+    cursor: pointer;
+}
+.createSociety:hover, .society:hover{
+    border-radius: 10px;
+    background-color: #e4e6e9;
+}
+/* .societyLink{
+    display: flex;
+} */
+.societyAvatar{
+    width: 30px;
+    height: 30px;
+    border:  1px solid;
+    border-radius: 50%;
+}
+.societyName{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 5px;
+}
+.createSocietyFrame{
+    position: relative;
+    width: 500px;
+    height: auto;
+    background-color: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+.createSocietyContentFrame{
+    width: 500px;
+    height: auto;
+}
+.createSocietyNameFrame{
+    width: 300px;
+    height: 100px;
+    margin: 0 auto;
+}
+.createSocietyNameText{
+    font-size: 20px;
+}
+.createSocietyNameInput{
+    width: 274px;
+    height: 30px;
+    resize: none;
+    border-radius: 10px;
+    outline: none;
+    padding: 8px 12px;
+    background-color: #ffffff;
+    font-size: 16px;
+    font-weight: 500;
+    border: 1px solid;
+}
+.createSocietyHideFrame{
+    width: 300px;
+    height: 100px;
+}
+.createSocietyPrivacyFrame, .createSocietyHideFrame{
+    width: 300px;
+    height: 50px;
+    background-color: #fff;
+    border: 1px solid #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 20px auto;
+}
+.createSocietyPrivacyInputFrame, .createSocietyHideInputFrame{
+    width: 300px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    user-select: none;
+}
+.createSocietyPrivacy{
+    display: none;
+    position: absolute;
+    top: 220px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 300px;
+    height: 120px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    text-align: center;
+    user-select: none;
+    cursor: pointer;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+.createSocietyHide{
+    display: none;
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 300px;
+    height: 120px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    text-align: center;
+    user-select: none;
+    cursor: pointer;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+.globalFrame, .privacyFrame, .openSearchFrame, .hideFrame{
+    width: 300px;
+    height: 60px;
+}
+.globalFrame:hover, .privacyFrame:hover, .openSearchFrame:hover, .hideFrame:hover{
+    background-color: #f2f2f2;
+}
+.globalContent, .privacyContent, .openSearchContent, .hideContent{
+    margin-top: 5px;
+    font-size: 12px;
+}
+.createSocietyButtonFrame{
+    width: 500px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+    margin-bottom: 10px;
+}
+.createSocietyButton{
+    width: 250px;
+    height: 30px;
+    background-color:#1b74e4;
+    border-radius: 5px;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+.createSocietyButton:hover{
+    background-color: #1a6ed8;
+}
+.createSocietyButton:active {
+    transform: translateY(1px);
+    box-shadow: 0 0 0 rgba(0, 0, 0, 0.2);
+}
+.createSocietyResult{
+    width: 500px;
+    height: 20px;
+    display: flex;
+    justify-content: center;
+    font-size: 30px;
+    color: green;
+}
+/*zoomimage*/
+.zoomimageFrame{
+    width: 600px;
+    height: 600px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    right: 0px;
+    top: 64px;
+    left: 0px;
+    bottom: 0px;
+    position: absolute;
+    margin: 100px auto;
+    background-color: #ddd;
+}
+.zoomimage{
+    width: auto;
+    height: auto;
+    position: relative;
+}
+.ImageZoom{
+    max-width: 500px;
+    height: auto;
+    object-fit: cover;
+}
+.closeImageZoom{
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    cursor:pointer;
 }
