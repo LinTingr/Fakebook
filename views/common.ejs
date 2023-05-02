@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="/CSS/common.css">
 </head>
 <body>
+    <script src="/socket.io/socket.io.js"></script>
     <div class="titleAll">
         <div class="title">
             <div class="titleHead"><a href="/">Fakebook</a></div>
@@ -21,22 +22,11 @@
             </div>
         </div>
         <div class="searchResultFrame" style="display: none;">
-            <div class="allSearchResult">
-                <!-- <a href="/member/1" class="memberNameLink">
-                    <div class="searchResult">
-                        <div class="searchResultImageFrame">
-                            <img src="/icon/chat1.png" class="searchResultImage">
-                        </div>
-                        <div class="searchResultTextFrame">
-                            <span class="searchResultText">ting</span>
-                        </div>
-                    </div>
-                </a> -->
-            </div>
+            <div class="allSearchResult"></div>
         </div>
         <div class="memberSystem" style="display: none;">
             <div class="memberFrameSystem">
-                <div class="memberCenter"><a href="/member" class="memberLink nameLink"></a></div>
+                <a href="/member" class="memberLink nameLink"><div class="memberCenter"></div></a>
                 <div class="signOut">登出</div>
             </div>
         </div>
@@ -44,19 +34,17 @@
             <div class="notificationbar">
                 <div class="notificationbarText">通知</div> 
             </div>
-            <div class="notificationbarContent">
-                <!-- <div class="invitationFrame">
-                    <div class="invitationAvatarMessageFrame">
-                        <div class="invitationAvatarFrame"><img src="" class="invitationAvatar"></div>
-                        <div class="invitationMessage"> 誰誰誰接受了你的交友邀請</div>
-                    </div>
-                    <div class="chooseFrame">
-                        <div class="accept"> 接受 </div>
-                        <div class="reject"> 拒絕 </div>
-                    </div>
-                </div> -->
-            </div> 
+            <div class="notificationbarContent"></div> 
+        </div>
+        <div class="chatroombarFrame" style="display: none;">
+            <div class="chatroombar">
+                <div class="chatroombarText">聊天室</div> 
+            </div>
+            <div class="chatroombarContent"></div> 
         </div>
     </div>
+    <div class="backChat" style="display: none;"></div>
+
+    <script src="/socket.io/socket.io.js"></script>
 </body>
 </html>
