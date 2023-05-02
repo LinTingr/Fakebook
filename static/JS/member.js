@@ -208,16 +208,16 @@ fetch(`/api${path}`).then(response=>{
         const friendCount = data.friendCount
         const friends = data.friends
         for(let i in friends){
-            let userId =  friends[i].userId
-            let userName = friends[i].userName
-            let userAvatar = friends[i].userAvatar
-            if(i>9){
+            if(i<9){
+                let userId =  friends[i].userId
+                let userName = friends[i].userName
+                let userAvatar = friends[i].userAvatar
+                const memberFriends = memberFriendsFrame(userId, userName, userAvatar)
+                allFriendFrame.appendChild(memberFriends)
+                const onefriend = friend(userId, userName, userAvatar, permissions)
+                moreFriend.appendChild(onefriend)
                 moreFriendButton.style.display = "block"
             }
-            const memberFriends = memberFriendsFrame(userId, userName, userAvatar)
-            allFriendFrame.appendChild(memberFriends)
-            const onefriend = friend(userId, userName, userAvatar, permissions)
-            moreFriend.appendChild(onefriend)
         }
         memberFriend.textContent = friendCount
         numberOfFriend.textContent = friendCount + "位朋友"
