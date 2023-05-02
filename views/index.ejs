@@ -8,16 +8,10 @@
     <link rel="stylesheet" type="text/css" href="/CSS/index.css">
 </head>
 <body>
-    <div class="errorBack" style="display:none">
-        <div class="error">
-            <hr class="errorMessageTop">
-            <div class="errorMessageMain">
-                <img src="/icon/icon_close.png" width="16px" height="16px" class="errorClose">
-                <div class="errorMessageText">請選擇日期</div>
-            </div>
-        </div>
+    <div class="Fakebookloading">
+        <div class="FakebookLoadingText">Loading</div>
+        <img src="/icon/loading.gif" />
     </div>
-    <!--style="display: none;"-->
     <div class="backgroundFrame" style="display: none;">
         <!-- location -->
         <div class="locationFrame none">
@@ -30,14 +24,13 @@
                 <input type="text" class="searchlocation">
             </div>
             <hr>
-            <div class="searchresultframeback">
-                <!-- <div class="searchresultframe">
-                    <div class="searchIcon"><img src="/icon/searchlocation.png" width="40px"></div>
-                    <div class="searchresultTextframe">
-                        <div class="resultname">7-ELEVEn 東敬門市</div>
-                        <div class="resultaddress">No. 90號, Zhuangjing Rd, East District, Tainan City, Taiwan 701</div>
-                    </div>
-                </div> -->
+            <div class="searchresultframeback"></div>
+        </div>
+        <!-- zoomimage -->
+        <div class="zoomimageFrame" style="display: none;">
+            <img src="/icon/close.png" class="closeImageZoom">
+            <div class="zoomimage">
+                <img src="" class="ImageZoom">
             </div>
         </div>
         <!-- image -->
@@ -54,13 +47,67 @@
             <div class="imagePreviewframeback">
                 <div class="errorMessage none">數量最多三張!!!!!!</div>
                 <div class="imagePreviewframe">
-                    <div class="imagePreview">
-                        <!-- <img src="" class="output"> -->
-                    </div>
+                    <div class="imagePreview"></div>
                 </div>
                 <div class="buttonFrame"><button type="button"class="button">確認</button></div>
             </div>
         </div>
+        <div class="postLikerFrame none">
+            <div class="postLikerTextFrame">
+                <div class="postLikerText">案讚的人</div>
+                <div><img src="/icon/close.png" width="32px" class="closePostLiker"></div>
+            </div>
+            <hr>
+            <div class="allPostLikerFrame"></div>
+        </div>
+        <div class="createSocietyFrame none">
+            <div class="createSocietyTextFrame">
+                <div class="createSocietyText">建立社團</div>
+                <div><img src="/icon/close.png" width="32px" class="closeCreateSociety"></div>
+            </div>
+            <hr>
+            <div class="createSocietyContentFrame">
+                <div class="createSocietyNameFrame">
+                    <div class="createSocietyNameText">社團名稱 : </div>
+                    <input type="text" class="createSocietyNameInput" placeholder="社團名稱">
+                </div>
+                <div class="createSocietyPrivacyFrame">
+                    <div class="createSocietyPrivacyInputFrame">
+                        <div class="createSocietyPrivacyText">選擇隱私設定 : </div>
+                        <div class="createSocietyPrivacyInput">公開</div>
+                    </div>
+                </div>
+                <div class="createSocietyPrivacy">
+                    <div class="globalFrame">
+                        <div class="global">公開</div>
+                        <div class="globalContent">任何人都可以查看到社團成員和他們的發布貼文</div>
+                    </div>
+                    <div class="privacyFrame">
+                        <div class="privacy">私密</div>
+                        <div class="privacyContent">只有成員可以查看到社團成員和他們的發布貼文</div>
+                    </div>
+                </div>
+                <div class="createSocietyHideFrame" style="display: none;">
+                    <div class="createSocietyHideInputFrame">
+                        <div class="createSocietyHideText">隱藏社團 : </div>
+                        <div class="createSocietyHideInput">開放搜尋</div>
+                    </div>
+                </div>
+                <div class="createSocietyHide">
+                    <div class="openSearchFrame">
+                        <div class="openSearch">開放搜尋</div>
+                        <div class="openSearchContent">所有的人都可以找到這個社團</div>
+                    </div>
+                    <div class="hideFrame">
+                        <div class="hide">隱藏</div>
+                        <div class="hideContent">只有成員可以找到這個社團</div>
+                    </div>
+                </div>
+                <div class="createSocietyResult"></div>
+            </div>
+            <div class="createSocietyButtonFrame">
+                <div class="createSocietyButton">建立</div>
+            </div>
         </div>
     </div>
     <%- include("common") %>
@@ -68,30 +115,28 @@
         <div class="selectFrame">
             <div class="memberFrame">
                 <div class="homepageframe"><img src="/icon/homepage.png" alt="" width="20px" height="20px"><div class="home">首頁</div></div>
-                <a href="/member" class="nameLink"><div class="member"><img src="" class="memberavatar"><div class="membername">會員名稱</div></div></a>
+                <a href="/member" class="nameLink">
+                    <div class="member">
+                        <img src="" class="memberavatar">
+                        <div class="membername">會員名稱</div>
+                    </div>
+                </a>
             </div>
             <hr>
-            <div class="forumFrame">
-                <div class="member"><div class="forumavatar"></div><div class="forumname">社團名稱</div></div>
-                <div class="member"><div class="forumavatar"></div><div class="forumname">社團名稱</div></div>
-                <div class="member"><div class="forumavatar"></div><div class="forumname">社團名稱</div></div>
+            <div class="societyFrame">
+                <div class="createSociety">
+                    <div class="societyAvatar"><img src="/icon/society.png"></div>
+                    <div class="societyName">建立新社團</div>
+                </div>
             </div>
         </div>
-        
     </div>
     <div class="positionfriend" >
         <div class="contactPersonFrame">
             <div class="contactPersonTextFrame">
                 <div class="contactPersonText">聯絡人</div>
-                <div class="settingicon"><img src="/icon/search.png" alt=""width="24px"></div>
-                <div class="settingicon"><img src="/icon/ellipsis.png" alt=""width="24px"></div>
             </div>
-            <div class="PersonFrame">
-                <!-- <div class="Person">
-                    <div class="PersonAvatar"><img src="/icon/avatar.png" alt=""width="32px"></div>
-                    <div class="PersonName"><div>sdaddsa</div></div>
-                </div> -->
-            </div>
+            <div class="PersonFrame"></div>
         </div>
     </div>
     <div class="root">
@@ -106,15 +151,7 @@
                         </a>
                         <textarea class="postTextInput" placeholder="在想些什麼?"></textarea>
                     </div>
-                    <div class="findlocation">
-                        <!-- <div class="selectlocationFrame">
-                            <a href="" class="linklocation"> 
-                                <img src="/icon/placemarker.png">
-                                <div class="selectlocation">7-ELEVEn 東敬門市</div>
-                            </a>
-                            <img src="/icon/icon_close.png" class="locationClose">
-                        </div> -->
-                    </div>
+                    <div class="findlocation"></div>
                     <hr>
                     <div class="Postfunction">
                         <div class="memberPostPicture hover"><img src="/icon/pictureicon.png" alt=""><div class="Pictext">相片</div></div>
@@ -123,68 +160,17 @@
                     </div>
                 </div>
             </div>
-            <div class="allArticle">
-                <!-- <div class="postBlock">
-                    <div class="postContainer">
-                        <div class="postAvatarMembername">
-                            <div class="postAvatar">
-                                <img src="/icon/member_icon.png" alt="" >
-                            </div>
-                            <div class="postmembername">會員名稱</div>
-                        </div>
-                        <hr>
-                        <div class="postcontext">
-                            000000000
-                        </div>
-                        <div class="postimageFrame">
-                            <img src="/icon/haha.jpg" class="postImage">
-                            <img src="/icon/下載 (2).jpg" class="postImage">
-                            <img src="/icon/images.jpg" class="postImage">
-                        </div>
-                        <div class="likeMessageiconCountFrame">
-                            <div class="likeiconFrame">
-                                <img src="/icon/facebooklike.png" alt="" width="30px"><div class="likeCount"> 1 </div>
-                            </div>
-                            <div class="messiconFrame">
-                                <img src="/icon/chatmessage.png" alt="" width="30px"><div class="messageCount"> 1 </div>
-                            </div>
-                        </div>
-                        <hr>
-                        <div class="likeMessageiconFrame">
-                            <div class="likeclickFrame"><img src="/icon/fblike.png" alt="" width="36px">讚</div>
-                            <div class="messagechatFrame"><img src="/icon/chatmessage.png" alt="">留言</div>
-                            <div class="shareclickFrame"><img src="/icon/share.png" alt="" width="32px">分享</div>
-                        </div>
-                        <hr>
-                        <div class="AllchatFrame">
-                            <div class="watchmorechatmessage">查看更多留言...</div>
-                        </div>
-                        <div class="allchatmessageFrame">
-                            <div class="avatarchatmessageFrame">
-                                <img src="" alt="" class="userAsvatar">
-                                <div class="userChatmessageFrame">
-                                    <div class="userChatmessageName">名稱</div>
-                                    <div class="userChatmessageMess">brabrabra</div>
-                                </div>
-                            </div>                    
-                        </div>
-                        <div class="chatBoxFrame">
-                            <div class="chatboxAvatarFrame">
-                                <div class="chatboxAvatarFrame">
-                                    <img src="" alt="">
-                                </div>
-                            </div>
-                            <div class="chatboxInputFrame">
-                                <input type="text" class="chatboxInput">
-                            </div>
-                        </div>
-                    </div> 
-                </div> -->
+            <div class="allArticle"></div>
+            <div class="postloading">
+                <div class="postloadingText">Loading</div>
+                <img src="/icon/loading3.gif" />
             </div>
         </div>
     </div>
-    <script src="JS/index.js"></script>
-    <script src="/JS/common.js"></script>
 
+    <script src="/JS/common.js"></script>
+    <script src="JS/post.js"></script>
+    <script src="JS/index.js"></script>
+    <script src="/JS/friend.js"></script>
 </body>
 </html>

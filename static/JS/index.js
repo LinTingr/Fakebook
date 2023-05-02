@@ -4,14 +4,8 @@ const memberavatar = document.querySelector(".memberavatar")
 const memberPostAvatarImg = document.querySelector(".memberPostAvatarImg")
 const lastclickPost = document.querySelector(".lastclickPost")
 const postTextInput = document.querySelector(".postTextInput")
-const searchlocation = document.querySelector(".searchlocation")
-const searchresultframeback = document.querySelector(".searchresultframeback")
-const closelocation = document.querySelector(".closelocation")
-const closeImage = document.querySelector(".closeImage")
 const backgroundFrame = document.querySelector(".backgroundFrame")
 const locationFrame = document.querySelector(".locationFrame")
-const memberPostLocation = document.querySelector(".memberPostLocation")
-const memberPostPicture = document.querySelector(".memberPostPicture")
 const selectlocation = document.querySelector(".selectlocation")
 const findlocation = document.querySelector(".findlocation")
 const upload = document.querySelector(".upload")
@@ -19,30 +13,27 @@ const output = document.querySelector(".output")
 const imagePreview = document.querySelector(".imagePreview")
 const errorMessage = document.querySelector(".errorMessage")
 const imageFrame = document.querySelector(".imageFrame")
-const button = document.querySelector(".button")
 const AllPostFrame = document.querySelector(".AllPostFrame")
 const allArticle = document.querySelector(".allArticle")
 const memberLink = document.querySelector(".memberLink")
-const memberCenter = document.querySelector(".memberCenter")
 const nameLink = document.querySelectorAll(".nameLink")
-// const invitationAvatar = document.querySelector(".invitationAvatar")
-// const invitationMessage = document.querySelector(".invitationMessage")
-
+const Fakebookloading = document.querySelector(".Fakebookloading")
+const postloading = document.querySelector(".postloading")
+const societyName = document.querySelector(".societyName")
+const createSociety = document.querySelector(".createSociety")
+const createSocietyFrame = document.querySelector(".createSocietyFrame")
+const closeCreateSociety = document.querySelector(".closeCreateSociety")
 let nextPage = 0;
-let nowUserName;
-let nowUserAvatar;
-let nowUserId;
 
 fetch("/api/user").then(response=>{
     return response.json()
 }).then(data=>{
-    console.log(data)
     if(data.ok){
         nowUserId = data.user.userid;
         nowUserName = data.user.username;
         nowUserAvatar = data.user.useravatar;
         membername.textContent = nowUserName;
-        memberLink.textContent = nowUserName;
+        memberCenter.textContent = nowUserName;
         memberSystemAvatar.src = nowUserAvatar;
         memberavatar.src = nowUserAvatar;
         memberPostAvatarImg.src = nowUserAvatar;
@@ -54,114 +45,202 @@ fetch("/api/user").then(response=>{
     }
 })
 
-function notificationbar(sendUserId, sendUser, sendUserAvatar){
-    let invitationFrame = document.createElement("div");
-    invitationFrame.className = "invitationFrame";
-    let invitationAvatarMessageFrame = document.createElement("div");
-    invitationAvatarMessageFrame.className = "invitationAvatarMessageFrame";
-    let invitationAvatarFrame = document.createElement("div");
-    invitationAvatarFrame.className = "invitationAvatarFrame";
-    let invitationAvatar = document.createElement("img");
-    invitationAvatar.className = "invitationAvatar";
-    invitationAvatar.src = sendUserAvatar; // 設定圖片路徑
-    invitationAvatarFrame.appendChild(invitationAvatar);
-    let invitationMessage = document.createElement("div");
-    invitationMessage.className = "invitationMessage";
-    invitationMessage.textContent = sendUser + "傳送了交友邀請給你"; // 設定文字內容
-    invitationAvatarMessageFrame.appendChild(invitationAvatarFrame);
-    invitationAvatarMessageFrame.appendChild(invitationMessage);
-    let chooseFrame = document.createElement("div");
-    chooseFrame.className = "chooseFrame";
-    let accept = document.createElement("div");
-    accept.className = "accept";
-    accept.textContent = "接受"; // 設定文字內容
-    let reject = document.createElement("div");
-    reject.className = "reject";
-    reject.textContent = "拒絕"; // 設定文字內容
-    chooseFrame.appendChild(accept);
-    chooseFrame.appendChild(reject);
-    invitationFrame.appendChild(invitationAvatarMessageFrame);
-    invitationFrame.appendChild(chooseFrame);
-    clickAccept(accept, sendUserId, sendUser, invitationFrame)
-    clickReject(reject, sendUserId, sendUser, invitationFrame)
-    return invitationFrame
-}
-
-function clickAccept(accept, sendUserId, sendUser, invitationFrame){
-    accept.addEventListener("click", ()=>{
-        const data = {
-            confirm : "ACCEPTED",
-            sendUserId : sendUserId,
-            sendUserName : sendUser
-        }
-        fetch("/api/friend", {
-            method:"PUT",
-            body:JSON.stringify(data),
-            headers:new Headers({
-                "content-type": "application/json"
-            })
-        }).then((response)=>{
-            return response.json()
-        }).then((data)=>{
-            console.log(data)
-            if(data.ok){
-                invitationFrame.remove()
-            }
-        })
-    })
-}
-function clickReject(reject, sendUserId, sendUser, invitationFrame){
-    reject.addEventListener("click", ()=>{
-        const data = {
-            confirm : "DECLINED",
-            sendUserId : sendUserId,
-            sendUserName : sendUser
-        }
-        fetch("/api/friend", {
-            method:"PUT",
-            body:JSON.stringify(data),
-            headers:new Headers({
-                "content-type": "application/json"
-            })
-        }).then((response)=>{
-            return response.json()
-        }).then((data)=>{
-            console.log(data)
-            if(data.ok){
-                invitationFrame.remove()
-            }
-        })
-    })
-}
-fetch("/api/friend/confirm").then((response)=>{
+fetch("/api/society").then(response=>{
     return response.json()
 }).then((data)=>{
-    let allsendUser = data.allsendUser
-    for(let i in allsendUser){
-        let sendUserId = allsendUser[i].userId
-        console.log(sendUserId)
-        let sendUser = allsendUser[i].userName
-        let sendUserAvatar = allsendUser[i].userAvatar
-        let invitationFrame = notificationbar(sendUserId, sendUser, sendUserAvatar)
-        notificationbarContent.appendChild(invitationFrame)
+    if(data.ok){
+        const society = data.society
+        for(let i in society){
+            const societyFrame = document.querySelector(".societyFrame")
+            let societyDivFrame = societyDiv(society[i].societyName, society[i].societyId)
+            societyFrame.appendChild(societyDivFrame)
+        }
     }
 })
 
+const global = document.querySelector(".global")
+const globalFrame = document.querySelector(".globalFrame")
+const privacy = document.querySelector(".privacy")
+const privacyFrame = document.querySelector(".privacyFrame")
+const createSocietyPrivacyInput = document.querySelector(".createSocietyPrivacyInput")
+const createSocietyHideFrame = document.querySelector(".createSocietyHideFrame")
+const createSocietyHide = document.querySelector(".createSocietyHide")
+const openSearch = document.querySelector(".openSearch")
+const openSearchFrame = document.querySelector(".openSearchFrame")
+const hide = document.querySelector(".hide")
+const hideFrame = document.querySelector(".hideFrame")
+const createSocietyHideInput = document.querySelector(".createSocietyHideInput")
+const createSocietyPrivacyFrame = document.querySelector('.createSocietyPrivacyFrame');
+const createSocietyPrivacy = document.querySelector('.createSocietyPrivacy');
+const createSocietyNameInput = document.querySelector(".createSocietyNameInput")
+
+createSociety.addEventListener("click", ()=>{
+    backgroundFrame.style.display = "flex"
+    createSocietyFrame.classList.remove("none")
+})
+
+closeCreateSociety.addEventListener("click",()=>{
+    backgroundFrame.style.display = "none"
+    createSocietyFrame.classList.add("none")
+    createSocietyResult.innerHTML = "" 
+    createSocietyNameInput.value = ""
+    createSocietyHide.style.display = 'none'
+    createSocietyHideFrame.style.display = 'none'
+    createSocietyPrivacyInput.textContent = "公開"
+    createSocietyPrivacy.style.display = "none"
+})
+
+createSocietyPrivacyFrame.addEventListener("click", (e)=>{
+    createSocietyPrivacy.style.display = "block"
+    createSocietyHide.style.display = "none"
+    e.stopPropagation()
+})
+body.addEventListener("click", ()=>{
+    createSocietyPrivacy.style.display = "none"
+    createSocietyHide.style.display = "none"
+})
+createSocietyPrivacy.addEventListener("click", (e)=>{
+    e.stopPropagation()
+})
+
+createSocietyHideFrame.addEventListener("click", (e)=>{
+    createSocietyHide.style.display = "block"
+    createSocietyPrivacy.style.display = "none"
+    e.stopPropagation()
+})
+body.addEventListener("click", ()=>{
+    createSocietyHide.style.display = "none"
+})
+createSocietyHide.addEventListener("click", (e)=>{
+    e.stopPropagation()
+})
+
+globalFrame.addEventListener("click", ()=>{
+    createSocietyPrivacyInput.textContent = global.textContent
+    createSocietyPrivacy.style.display = 'none';
+    createSocietyHideFrame.style.display = 'none';
+})
+privacyFrame.addEventListener("click", ()=>{
+    createSocietyPrivacyInput.textContent = privacy.textContent
+    createSocietyHideFrame.style.display = 'block'
+    createSocietyPrivacy.style.display = 'none';
+})
+
+openSearchFrame.addEventListener("click", ()=>{
+    createSocietyHideInput.textContent = openSearch.textContent
+    createSocietyHide.style.display = 'none';
+})
+hideFrame.addEventListener("click", ()=>{
+    createSocietyHideInput.textContent = hide.textContent
+    createSocietyHide.style.display = 'none'
+})
+const createSocietyButton = document.querySelector(".createSocietyButton")
+const createSocietyResult = document.querySelector(".createSocietyResult")
+createSocietyButton.addEventListener("click", ()=>{
+    const createSocietyNameInput = document.querySelector(".createSocietyNameInput")
+    const createSocietyPrivacyInput = document.querySelector(".createSocietyPrivacyInput")
+    const createSocietyHideInput = document.querySelector(".createSocietyHideInput")
+    let data = {
+        userId : nowUserId,
+        userName : nowUserName,
+        societyName : createSocietyNameInput.value,
+        privacy : createSocietyPrivacyInput.textContent,
+        hide : createSocietyHideInput.textContent
+    }
+    fetch("/api/society/create",{
+        method:"POST",
+        body:JSON.stringify(data),
+        headers:new Headers({
+            "content-type": "application/json"
+        })
+    }).then((response)=>{
+        return response.json()
+    }).then((data)=>{
+        if(data.ok){
+            createSocietyResult.textContent = "建立成功"
+            const societyFrame = document.querySelector(".societyFrame")
+            let societyDivFrame = societyDiv(createSocietyNameInput.value, data.link)
+            societyFrame.appendChild(societyDivFrame)
+            setTimeout(()=>{
+                backgroundFrame.style.display = "none"
+                createSocietyFrame.classList.add("none")
+                createSocietyResult.innerHTML = "" 
+                createSocietyNameInput.value = ""
+                createSocietyHide.style.display = 'none'
+                createSocietyHideFrame.style.display = 'none'
+                createSocietyPrivacyInput.textContent = "公開"
+                createSocietyPrivacy.style.display = "none"
+            },1000)
+        }
+    })
+})
+
+function societyDiv(societyName, link){
+    const societyLink = document.createElement('a');
+    const society = document.createElement('div');
+    const societyAvatar = document.createElement('div');
+    const societyAvatarImg = document.createElement('img');
+    const societyNameDiv = document.createElement('div');
+    societyLink.setAttribute('href', "/society/" + link);
+    societyLink.setAttribute('class', 'societyLink');
+    society.setAttribute('class', 'society');
+    societyAvatar.setAttribute('class', 'societyAvatar');
+    societyAvatarImg.setAttribute('src', '/icon/society.png');
+    societyNameDiv.setAttribute('class', 'societyName');
+    societyNameDiv.textContent = societyName;
+    societyLink.appendChild(society);
+    society.appendChild(societyAvatar);
+    societyAvatar.appendChild(societyAvatarImg);
+    society.appendChild(societyNameDiv)
+    return societyLink
+} 
+// 點擊好友出現聊天室
+function memberFriendClick(personDiv, userId, userName, userAvatar){
+    personDiv.addEventListener("click", ()=>{
+        const aLLChatInterfaceFrame = document.querySelectorAll(".chatInterfaceFrame")
+        const numberOfChat = document.querySelector(`#chat${userId}`)
+        if(numberOfChat){
+            return
+        }
+        fetch(`/api/chatMessage/chat?memberId=${userId}`).then((response)=>{
+            return response.json()
+        }).then((data)=>{
+            let allMessage = data.allMessage
+            const backChat = document.querySelector(".backChat")
+            backChat.style.display = ""
+            let chatroom = chatroomDiv(userId, userName, userAvatar, allMessage)
+            backChat.appendChild(chatroom)
+            const chatID = backChat.querySelector(`#chat${userId}`)
+            const chatMessageBoxFrame = chatID.querySelector(".chatMessageBoxFrame")
+            chatMessageBoxFrame.scrollTop = chatMessageBoxFrame.scrollHeight
+        })
+        if(aLLChatInterfaceFrame.length>=3){
+            const removechatframe = document.querySelector(".chatInterfaceFrame")
+            removechatframe.remove()
+        }
+    }) 
+}
+
 function friends(userId, userName, userAvatar){
     const personDiv = document.createElement("div");
-    personDiv.setAttribute("class", "Person")
+    personDiv.setAttribute("class", "Person");
     const avatarDiv = document.createElement("div");
-    avatarDiv.setAttribute("class", "PersonAvatar")
+    avatarDiv.setAttribute("class", "PersonAvatar");
     const avatarImg = document.createElement("img");
-    avatarImg.setAttribute("src", userAvatar)
-    avatarImg.setAttribute("width", "32px")
-    avatarImg.setAttribute("class", "friendavatarImg")
+    avatarImg.setAttribute("src", userAvatar);
+    avatarImg.setAttribute("width", "32px");
+    avatarImg.setAttribute("class", "friendavatarImg");
     avatarDiv.appendChild(avatarImg);
     const nameDiv = document.createElement("div");
-    nameDiv.setAttribute("class", "PersonName")
+    const userIdDiv = document.createElement("div");
+    nameDiv.setAttribute("class", "PersonName");
+    userIdDiv.setAttribute("class", "PersonId none");
+    userIdDiv.textContent = userId;
     nameDiv.textContent = userName;
+    personDiv.appendChild(userIdDiv);
     personDiv.appendChild(avatarDiv);
     personDiv.appendChild(nameDiv);
+    memberFriendClick(personDiv, userId, userName, userAvatar)
     return personDiv
 }
 
@@ -169,7 +248,6 @@ fetch("/api/friend").then((response)=>{
     return response.json()
 }).then((data)=>{
     let friendsData = data.data.friends
-    console.log(friendsData)
     for(let i in friendsData){
         let userId =  friendsData[i].userId
         let userName = friendsData[i].userName
@@ -182,16 +260,19 @@ fetch("/api/friend").then((response)=>{
 fetch(`/api/post?postPage=${nextPage}`).then((response)=>{
     return response.json()
 }).then((data)=>{
-    console.log(data)
+    setTimeout(function() {
+        Fakebookloading.style.display = "none";
+    }, 1000)
+    Fakebookloading.style.opacity  = "0"; 
     const next = data.nextPage
     const article = data.articleData
     for(let i = 0; i < article.length; i++){
         let newPostArticle = postArticle(
             article[i].postId,
-            article[i].societyId,
             article[i].postDateTime,
             article[i].postText,
             article[i].images,
+            article[i].postLiker,
             article[i].postLike,
             article[i].postUserId,
             article[i].postUserName,
@@ -208,123 +289,9 @@ fetch(`/api/post?postPage=${nextPage}`).then((response)=>{
     getPost();
 })
 
-
-
-memberPostLocation.addEventListener("click", ()=>{
-    backgroundFrame.style.display = "flex";
-    locationFrame.className = "locationFrame";
-})
-memberPostPicture.addEventListener("click", ()=>{
-    backgroundFrame.style.display = "flex";
-    imageFrame.className = "imageFrame";
-})
-
-closelocation.addEventListener("click", ()=>{
+closePostLiker.addEventListener("click", ()=>{
     backgroundFrame.style.display = "none";
-    locationFrame.className = "locationFrame none";
-})
-
-closeImage.addEventListener("click", ()=>{
-    backgroundFrame.style.display = "none";
-    imageFrame.className = "imageFrame none";
-    imagePreview.innerHTML = ""
-    upload.value = "";
-    memberPostPicture.classList.remove("color")
-})
-button.addEventListener("click", ()=>{
-    if(upload.files.length != 0){
-        backgroundFrame.style.display = "none";
-        imageFrame.className = "imageFrame none";
-        let file = upload.files;
-        console.log(file)
-        memberPostPicture.classList.add("color")
-    }
-})
-
-
-function locationframe(name, address, i){
-    const searchresultframe = document.createElement("div");
-    if(i%2){
-        searchresultframe.setAttribute("class","searchresultframe color hover");
-    }else{
-        searchresultframe.setAttribute("class","searchresultframe hover");
-    }
-    const searchIcon = document.createElement("div");
-    searchIcon.setAttribute("class","searchIcon");
-    const searchIconImg = document.createElement("img");
-    searchIconImg.setAttribute("src", "/icon/searchlocation.png");
-    searchIconImg.setAttribute("width", "40px");
-    searchIcon.appendChild(searchIconImg);
-    searchresultframe.appendChild(searchIcon);
-    const searchresultTextframe = document.createElement("div");
-    searchresultTextframe.setAttribute("class","searchresultTextframe");
-    const resultname = document.createElement("div");
-    resultname.setAttribute("class","resultname");
-    resultname.textContent = name;
-    searchresultTextframe.appendChild(resultname);
-    const resultaddress = document.createElement("div");
-    resultaddress.setAttribute("class","resultaddress");
-    resultaddress.textContent = address; 
-    searchresultTextframe.appendChild(resultaddress);
-    searchresultframe.appendChild(searchresultTextframe);
-    return searchresultframe
-}
-function addlocation(name){
-    const selectlocationFrame = document.createElement("div");
-    selectlocationFrame.setAttribute("class", "selectlocationFrame");
-    const img = document.createElement("img");
-    img.setAttribute("src", "/icon/placemarker.png");
-    const selectlocation = document.createElement("div");
-    selectlocation.setAttribute("class", "selectlocation");
-    selectlocation.textContent = name;
-    const alink = document.createElement("a");
-    alink.setAttribute("href", `https://www.google.com/maps/search/?api=1&query=${name}`);
-    alink.setAttribute("class", "linklocation");
-    alink.setAttribute("target", "_blank");
-    alink.appendChild(img);
-    alink.appendChild(selectlocation);
-    const locationClose = document.createElement("img")
-    locationClose.setAttribute("src", "/icon/icon_close.png");
-    locationClose.setAttribute("class", "locationClose");
-    selectlocationFrame.appendChild(alink)
-    selectlocationFrame.appendChild(locationClose)
-    return selectlocationFrame
-}
-
-searchlocation.addEventListener("input", ()=>{
-    console.log(searchlocation.value)
-    const place = searchlocation.value
-    fetch(`api/location?keyword=${place}`).then(response =>{
-        return response.json()
-    }).then(data=>{
-        if(data.locationData){
-            searchresultframeback.innerHTML = "";
-            for(let i = 0; i < data.locationData.length; i++){
-                let locationname = data.locationData[i].name
-                let locationaddress = data.locationData[i].address
-                let frame = locationframe(locationname, locationaddress, i)
-                searchresultframeback.appendChild(frame)
-            }
-            const searchresultframe = document.querySelectorAll(".searchresultframe")
-            searchresultframe.forEach(element=>{
-                element.addEventListener("click", ()=>{
-                    const resultName = element.querySelector(".resultname").textContent;      
-                    let addplace = addlocation(resultName)
-                    findlocation.innerHTML = ""
-                    findlocation.appendChild(addplace)
-                    backgroundFrame.style.display = "none"
-                    locationFrame.className = "locationFrame none"
-                    memberPostLocation.classList.add("color")
-                    const locationClose = document.querySelector(".locationClose")
-                    locationClose.addEventListener("click", ()=>{
-                        findlocation.innerHTML = ""
-                        memberPostLocation.classList.remove("color")
-                    })
-                })
-            })
-
-        }
-    })
+    postLikerFrame.className = "postLikerFrame none"
 })
 
 upload.addEventListener("change", function(event) {
@@ -347,6 +314,8 @@ upload.addEventListener("change", function(event) {
 });
 
 lastclickPost.addEventListener("click", ()=>{
+    Fakebookloading.style.display = "flex";
+    Fakebookloading.style.opacity = "0.5";
     const selectlocation = document.querySelector(".selectlocation")
     const postText = postTextInput.value;
     let files = upload.files;
@@ -370,9 +339,7 @@ lastclickPost.addEventListener("click", ()=>{
     }).then((response)=>{
         return response.json()
     }).then((data)=>{
-        console.log(data);
         if(data.error){
-
         }else{
             if(judgeLocation){
                 postTextInput.value = ""
@@ -385,23 +352,28 @@ lastclickPost.addEventListener("click", ()=>{
                 memberPostLocation.classList.remove("color")
                 memberPostPicture.classList.remove("color")
             }
+            const postComment = []
+            const postLiker = []
             let newPostArticle = postArticle(
                 data.postId,
-                data.societyId,
                 data.dateTime,
                 data.postText,
                 data.images,
+                postLiker,
                 data.postLike,
+                data.userId,
                 data.userName,
                 data.userAvatar,
+                postComment, 
                 data.location)
             allArticle.insertBefore(newPostArticle, allArticle.firstChild)
-            
         }
+        upload.value = "";
+        Fakebookloading.style.display = "none";
     })
 })
 
-function postArticle(postId, societyId, dateTime, postText, images, postLike, postUserId, userName, userAvatar, postComment, location){
+function postArticle(postId, dateTime, postText, images, postLiker, postLike, postUserId, userName, userAvatar, postComment, location){
     const postBlockDiv = document.createElement("div");
     postBlockDiv.setAttribute("class", "postBlock");
     const postContainerDiv = document.createElement("div");
@@ -435,17 +407,16 @@ function postArticle(postId, societyId, dateTime, postText, images, postLike, po
         postMemberlocationspan.setAttribute("class","postMemberlocation")
         postMemberlocationlnk.setAttribute("href",`https://www.google.com/maps/search/?api=1&query=${location}`)
         postMemberlocationlnk.setAttribute("class","postMemberlocationlink")
+        postMemberlocationlnk.setAttribute("target","_blank")
         postMemberlocationlnk.textContent = " __在 "
         postMemberlocationspan.textContent = location;
         postMemberlocationlnk.appendChild(postMemberlocationspan)
         postAvatarMembernameDiv.appendChild(postMemberlocationlnk)
     }
     const hr = document.createElement("hr");
-    // const postContainerDiv = document.createElement("div");
     postContainerDiv.setAttribute("class", "postContainer");
     postContainerDiv.appendChild(postAvatarMembernameDiv);
     postContainerDiv.appendChild(hr);
-    //
     const postContextDiv = document.createElement("div");
     postContextDiv.setAttribute("class", "postcontext");
     if(postText){
@@ -463,17 +434,17 @@ function postArticle(postId, societyId, dateTime, postText, images, postLike, po
     }else{
         likeCountDiv.textContent = "0"
     }
-    
     const likeIconFrameDiv = document.createElement("div");
     likeIconFrameDiv.setAttribute("class", "likeiconFrame hover");
     likeIconFrameDiv.appendChild(likeIconImg);
     likeIconFrameDiv.appendChild(likeCountDiv);
+    lookLiker(likeIconFrameDiv, postLiker, postId)
     const messageIconImg = document.createElement("img");
     messageIconImg.setAttribute("src", "/icon/chatmessage.png");
     messageIconImg.setAttribute("width", "30px");
     const messageCountDiv = document.createElement("div");
     messageCountDiv.setAttribute("class", "messageCount");
-    if(postComment.length){
+    if(postComment){
         messageCountDiv.textContent = postComment.length;
     }else{
         messageCountDiv.textContent = 0;
@@ -489,36 +460,33 @@ function postArticle(postId, societyId, dateTime, postText, images, postLike, po
     const hr1 = document.createElement("hr");
     postContainerDiv.appendChild(postContextDiv);
     if(images){
-        console.log(images)
         const postimageFrame = document.createElement("div");
         postimageFrame.setAttribute("class", "postimageFrame");
         for(let i in images){
-            console.log(i)
             const postImage = document.createElement("img");
             postImage.setAttribute("class", "postImage");
             postImage.setAttribute("src", images[i]);
+            zoomImage(postImage)
             postimageFrame.appendChild(postImage);
         }
         postContainerDiv.appendChild(postimageFrame);
     }
     postContainerDiv.appendChild(likeMessageIconCountFrameDiv);
     postContainerDiv.appendChild(hr1);
-    //
     const likeMessageiconFrame = document.createElement("div");
     likeMessageiconFrame.setAttribute("class", "likeMessageiconFrame");
     const likeclickFrame = document.createElement("div");
     likeclickFrame.setAttribute("class", "likeclickFrame hover");
     const likeImg = document.createElement("img");
-
     let likeCount = 0
-    // console.log("postLike",postLike)
-    if(postLike["clickLike"]){
-        likeCount = 1
-        likeImg.setAttribute("src", "/icon/fblike1.png");
-    }else{
-        likeImg.setAttribute("src", "/icon/fblike.png");
+    if(postLike){
+        if(postLike["clickLike"]){
+            likeCount = 1
+            likeImg.setAttribute("src", "/icon/fblike1.png");
+        }else{
+            likeImg.setAttribute("src", "/icon/fblike.png");
+        }
     }
-
     likeImg.setAttribute("width", "36px");
     likeImg.setAttribute("class", "likeclick");
     const likeText = document.createTextNode("讚");
@@ -532,91 +500,65 @@ function postArticle(postId, societyId, dateTime, postText, images, postLike, po
     const messageText = document.createTextNode("留言");
     messagechatFrame.appendChild(messageImg);
     messagechatFrame.appendChild(messageText);
-    const shareclickFrame = document.createElement("div");
-    shareclickFrame.setAttribute("class", "shareclickFrame hover");
-    const shareImg = document.createElement("img");
-    shareImg.setAttribute("src", "/icon/share.png");
-    shareImg.setAttribute("width", "32px");
-    const shareText = document.createTextNode("分享");
-    shareclickFrame.appendChild(shareImg);
-    shareclickFrame.appendChild(shareText);
     likeMessageiconFrame.appendChild(likeclickFrame);
     likeMessageiconFrame.appendChild(messagechatFrame);
-    likeMessageiconFrame.appendChild(shareclickFrame);
     const hr2 = document.createElement("hr");
     postContainerDiv.appendChild(likeMessageiconFrame);
     postContainerDiv.appendChild(hr2);
-
     likeClick(likeclickFrame, likeImg, likeCount, postId, likeIconFrameDiv)
-    //
-//     const AllchatFrame = document.createElement("div");
-//     AllchatFrame.setAttribute("class", "AllchatFrame");
-// //
-//     const watchmorechatmessage = document.createElement("div");
-//     watchmorechatmessage.setAttribute("class", "watchmorechatmessage");
-//     watchmorechatmessage.textContent = "查看更多留言...";
-//     AllchatFrame.appendChild(watchmorechatmessage);
     const allchatmessageFrame = document.createElement("div");
     allchatmessageFrame.setAttribute("class", "allchatmessageFrame none");
-//
-    for(let i = 0 ; i< postComment.length; i++){
-        // console.log(postComment)
-        const avatarchatmessageFrame = document.createElement("div");
-        avatarchatmessageFrame.setAttribute("class", "avatarchatmessageFrame");
-        const avatarFrame = document.createElement("div");
-        avatarFrame.setAttribute("class", "avatarFrame");
-        const postMemberavatarLink = document.createElement("a");
-        postMemberavatarLink.setAttribute("href", "/member/" + postComment[i].postCommentUserId);
-        const userAvatarchat = document.createElement("img");
-        userAvatarchat.setAttribute("src", postComment[i].postCommentAvatar);
-        userAvatarchat.setAttribute("class", "userAvatar");
-        avatarFrame.appendChild(postMemberavatarLink);
-        postMemberavatarLink.appendChild(userAvatarchat);
-        avatarchatmessageFrame.appendChild(avatarFrame);
-        const userChatmessageFrame = document.createElement("div");
-        userChatmessageFrame.setAttribute("class", "userChatmessageFrame");
-        const userChatmessageName = document.createElement("div");
-        const postMembernameDiv = document.createElement("div");
-        postMembernameDiv.setAttribute("class", "postmembername");
-        const postMembernameLink = document.createElement("a");
-        postMembernameLink.setAttribute("href", "/member/" + postComment[i].postCommentUserId);
-        postMembernameLink.textContent = postComment[i].postCommentUserName;
-        userChatmessageName.setAttribute("class", "userChatmessageName");
-        userChatmessageName.appendChild(postMembernameLink);
-        userChatmessageFrame.appendChild(userChatmessageName);
-        const userChatmessageMess = document.createElement("div");
-        userChatmessageMess.setAttribute("class", "userChatmessageMess");
-        userChatmessageMess.textContent = postComment[i].commentText;
-        userChatmessageFrame.appendChild(userChatmessageMess);
-        allchatmessageFrame.appendChild(avatarchatmessageFrame)
-        avatarchatmessageFrame.appendChild(userChatmessageFrame);
+    if(postComment){
+        for(let i = 0 ; i< postComment.length; i++){
+            const avatarchatmessageFrame = document.createElement("div");
+            avatarchatmessageFrame.setAttribute("class", "avatarchatmessageFrame");
+            const avatarFrame = document.createElement("div");
+            avatarFrame.setAttribute("class", "avatarFrame");
+            const postMemberavatarLink = document.createElement("a");
+            postMemberavatarLink.setAttribute("href", "/member/" + postComment[i].postCommentUserId);
+            const userAvatarchat = document.createElement("img");
+            userAvatarchat.setAttribute("src", postComment[i].postCommentAvatar);
+            userAvatarchat.setAttribute("class", "userAvatar");
+            avatarFrame.appendChild(postMemberavatarLink);
+            postMemberavatarLink.appendChild(userAvatarchat);
+            avatarchatmessageFrame.appendChild(avatarFrame);
+            const userChatmessageFrame = document.createElement("div");
+            userChatmessageFrame.setAttribute("class", "userChatmessageFrame");
+            const userChatmessageName = document.createElement("div");
+            const postMembernameDiv = document.createElement("div");
+            postMembernameDiv.setAttribute("class", "postmembername");
+            const postMembernameLink = document.createElement("a");
+            postMembernameLink.setAttribute("href", "/member/" + postComment[i].postCommentUserId);
+            postMembernameLink.textContent = postComment[i].postCommentUserName;
+            userChatmessageName.setAttribute("class", "userChatmessageName");
+            userChatmessageName.appendChild(postMembernameLink);
+            userChatmessageFrame.appendChild(userChatmessageName);
+            const userChatmessageMess = document.createElement("div");
+            userChatmessageMess.setAttribute("class", "userChatmessageMess");
+            userChatmessageMess.textContent = postComment[i].commentText;
+            userChatmessageFrame.appendChild(userChatmessageMess);
+            allchatmessageFrame.appendChild(avatarchatmessageFrame)
+            avatarchatmessageFrame.appendChild(userChatmessageFrame);
+        }
     }
-//
-    
     postContainerDiv.appendChild(allchatmessageFrame)
-
-    // 
     const chatBoxFrame = document.createElement("div");
     chatBoxFrame.setAttribute("class", "chatBoxFrame");
-    // const chatboxAvatarFrame = document.createElement("div");
-    // chatboxAvatarFrame.setAttribute("class", "chatboxAvatarFrame");
     const chatboxAvatarFrame = document.createElement("div");
     chatboxAvatarFrame.setAttribute("class", "chatboxAvatarFrame");
     const imgElement = document.createElement("img");
     imgElement.setAttribute("src", nowUserAvatar);
     imgElement.setAttribute("class", "userAvatarimgElement");
     chatboxAvatarFrame.appendChild(imgElement);
-    // chatboxAvatarFrame.appendChild(chatboxAvatarFrameChild);
     const chatboxInputFrame = document.createElement("div");
     chatboxInputFrame.setAttribute("class", "chatboxInputFrame");
     const inputElement = document.createElement("input");
     inputElement.setAttribute("type", "text");
     inputElement.setAttribute("placeholder", "留言···");
     inputElement.setAttribute("class", "chatboxInput");
-
     let chatCount = 0
-    chatMessage(chatboxInputFrame, postId, userName, userAvatar, messagechatFrame, allchatmessageFrame, messageIconFrameDiv, chatCount)
-    lookmessagechatFrame(messagechatFrame, allchatmessageFrame, chatCount)
+    chatMessage(chatboxInputFrame, postId, userName, userAvatar, messagechatFrame, allchatmessageFrame, messageIconFrameDiv, chatCount, inputElement)
+    lookmessagechatFrame(messagechatFrame, allchatmessageFrame, chatCount, messageIconFrameDiv, inputElement)
     chatboxInputFrame.appendChild(inputElement);
     chatBoxFrame.appendChild(chatboxAvatarFrame);
     chatBoxFrame.appendChild(chatboxInputFrame);
@@ -625,160 +567,39 @@ function postArticle(postId, societyId, dateTime, postText, images, postLike, po
     return postBlockDiv
 }
 
-function likeClick(likeclickFrame, likeImg, likeCount, postId, likeIconFrameDiv){
-    likeclickFrame.addEventListener("click", ()=>{
-        let postlikeCount = likeIconFrameDiv.querySelector(".likeCount").textContent
-        console.log(postlikeCount)
-        postlikeCount = parseInt(postlikeCount)
-        console.log(typeof(postlikeCount))
-        if(likeCount){
-            likeImg.src = "/icon/fblike.png"
-            postlikeCount -= 1
-            console.log(postlikeCount)
-            likeIconFrameDiv.querySelector(".likeCount").textContent = postlikeCount
-            likeCount -= 1
-        }else{
-            likeImg.src = "/icon/fblike1.png"
-            postlikeCount += 1
-            console.log(postlikeCount)
-            likeIconFrameDiv.querySelector(".likeCount").textContent = postlikeCount
-            likeCount += 1
-        }
-        let data = {
-            likeCount : likeCount,
-            postId : postId
-        }
-        fetch("/api/post/like", {
-            method:"POST",
-            body:JSON.stringify(data),
-            headers:new Headers({
-                "content-type": "application/json"
-            })
-        }).then((response)=>{
-            return response.json()
-        }).then((data)=>{
-            console.log(data)
-        })
-
-    })
-}
-function lookmessagechatFrame(messagechatFrame, allchatmessageFrame, chatCount){
-    messagechatFrame.addEventListener("click", ()=>{
-        if(chatCount){
-            allchatmessageFrame.className = "allchatmessageFrame none"
-            chatCount = 0
-        }else{
-            allchatmessageFrame.className = "allchatmessageFrame"
-            chatCount = 1
-        }
-        
-    })
-    return chatCount
-}
-function chatMessage(chatboxInputFrame, postId, userName, userAvatar, messagechatFrame, allchatmessageFrame, messageIconFrameDiv, chatCount){
-    chatboxInputFrame.addEventListener("keydown", (event)=>{
-        if(event.keyCode === 13){
-            const chatboxInput = chatboxInputFrame.querySelector(".chatboxInput")
-            let messageCount = messageIconFrameDiv.querySelector(".messageCount").textContent
-            const dateTime = new Date();
-            const timestamp = dateTime.getTime();
-            let data = {
-                postId :postId,
-                comment : chatboxInput.value,
-                dateTime : timestamp
-            }
-            const avatarchatmessageFrame = document.createElement("div");
-            avatarchatmessageFrame.setAttribute("class", "avatarchatmessageFrame");
-            const avatarFrame = document.createElement("div");
-            avatarFrame.setAttribute("class", "avatarFrame");
-            const postMemberavatarLink = document.createElement("a");
-            postMemberavatarLink.setAttribute("href", "/member/" + nowUserId);
-            const userAvatarchat = document.createElement("img");
-            userAvatarchat.setAttribute("src", nowUserAvatar);
-            userAvatarchat.setAttribute("class", "userAvatar");
-            avatarFrame.appendChild(postMemberavatarLink);
-            postMemberavatarLink.appendChild(userAvatarchat);
-            avatarchatmessageFrame.appendChild(avatarFrame);
-            const userChatmessageFrame = document.createElement("div");
-            userChatmessageFrame.setAttribute("class", "userChatmessageFrame");
-            const userChatmessageName = document.createElement("div");
-            userChatmessageName.setAttribute("class", "userChatmessageName");
-            const postMembernameLink = document.createElement("a");
-            postMembernameLink.setAttribute("href", "/member/" + nowUserId);
-            postMembernameLink.textContent = nowUserName;
-            userChatmessageName.setAttribute("class", "userChatmessageName");
-            userChatmessageName.appendChild(postMembernameLink);
-            userChatmessageFrame.appendChild(userChatmessageName);
-            userChatmessageFrame.appendChild(userChatmessageName);
-            const userChatmessageMess = document.createElement("div");
-            userChatmessageMess.setAttribute("class", "userChatmessageMess");
-            userChatmessageMess.textContent = chatboxInput.value;
-            userChatmessageFrame.appendChild(userChatmessageMess);
-            allchatmessageFrame.appendChild(avatarchatmessageFrame)
-            avatarchatmessageFrame.appendChild(userChatmessageFrame);
-            messageCount = parseInt(messageCount)
-            messageCount += 1
-            messageIconFrameDiv.querySelector(".messageCount").textContent = messageCount
-            allchatmessageFrame.className = "allchatmessageFrame"
-            chatCount = 1
-            lookmessagechatFrame(messagechatFrame, allchatmessageFrame, chatCount)
-            
-            
-            fetch("/api/post/comment", {
-                method:"POST",
-                body:JSON.stringify(data),
-                headers:new Headers({
-                    "content-type": "application/json"
-                })
-            }).then((response)=>{
-                return response.json()
-            }).then((data)=>{
-                console.log(data)
-            })
-            chatboxInput.value = ""
-        }
-    })
-}
-
 let loading = false
 function getPost(){
     const allPostBlock = document.querySelectorAll(".postBlock");
-    // console.log(allPostBlock)
     const threshold = 0.5
     const options = {
         root: null,
         threshold: threshold,
     };
     const observer = new IntersectionObserver(callback, options);
-    console.log(allPostBlock[allPostBlock.length - 2])
-    if(allPostBlock){
+    if(allPostBlock[allPostBlock.length - 2]){
         observer.observe(allPostBlock[allPostBlock.length - 2]); 
     }
-     
 }
-// setTimeout(getPost, 1000)
 
 async function callback(entry){
     if (entry[0].isIntersecting){
         if (loading == false){
             loading = true
-            console.log(nextPage)
             if (nextPage != null){
+                postloading.style.display = "flex"
                 await fetch(`/api/post?postPage=${nextPage}`).then(function(response){
                     return response.json();
                 }).then(function(data){
-                    console.log(data)
+                    postloading.style.display = "none"
                     const next = data.nextPage
-                    console.log(next)
                     const article = data.articleData
-                    console.log(article.length)
                     for(let i =0; i<article.length; i++){
                         let newPostArticle = postArticle(
                             article[i].postId,
-                            article[i].societyId,
                             article[i].postDateTime,
                             article[i].postText,
                             article[i].images,
+                            article[i].postLiker,
                             article[i].postLike,
                             article[i].postUserId,
                             article[i].postUserName,
