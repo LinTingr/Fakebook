@@ -16,7 +16,10 @@ const chatroombarFrame = document.querySelector(".chatroombarFrame")
 const chatFrame = document.querySelector(".chatFrame")
 const memberCenter = document.querySelector(".memberCenter")
 const memberNameLink = document.querySelector(".nameLink")
-const socket = io();
+const url = "https://tingbooster.com/"
+const socket = io(url, {
+    transports: ['polling']}
+);
 let count = 0;
 let nowUserName;
 let nowUserAvatar;
