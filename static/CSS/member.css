@@ -462,14 +462,14 @@ div{
     border: 1px solid slategrey;
     border-radius: 5px;
 }
-.selectlocationFrame{
+.updateSelectlocationFrame{
     width: auto;
     height: 30px;
     display: flex;
     justify-content: flex-end;
     margin: 5px 25px;
 }
-.selectlocation{
+.updateSelectlocation{
     width: auto;
     height: 30px;
     display: flex;
@@ -1333,11 +1333,14 @@ div{
     height: 250px;
     object-fit: cover;
 }
-.buttonFrame{
+.postbuttonFrame{
     width: 500px;
-    height: 50px;
-    text-align: center;
-    margin: 5px 0;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    bottom: 30px;
 }
 .errorMessage {
     color: #f00;

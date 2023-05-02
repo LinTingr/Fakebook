@@ -315,12 +315,12 @@ closeX.forEach((element)=>{
             outPutFrame.innerHTML = ""
             backupdateavatar.className = "backupdateavatar none"
             backgroundFrame.style.display = "none"
+            memberPostUpload.value = ""
         }
         if(!backgroundConfirm){
             backgroundOutPutFrame.innerHTML = ""
             backUpdateBackgroundFrame.className = "backUpdateBackgroundFrame none"
             backgroundFrame.style.display = "none"
-
         }
     })
 })
@@ -381,15 +381,16 @@ memberEditBackgroundButton.addEventListener("click", ()=>{
 const avatarButton = document.querySelector(".avatarButton")
 avatarButton.addEventListener("click", ()=>{
     avatarButton.style.pointerEvents = "none";
-    const upload = document.querySelector(".upload")
+    const memberPostUpload = document.querySelector(".memberPostUpload")
     let formdata = new FormData()
-    formdata.append("image", upload.files[0])
+    formdata.append("image", memberPostUpload.files[0])
     fetch("/api/member",{
         method:"POST",
         body:formdata
     }).then((response)=>{
         return response.json()
     }).then((data)=>{
+        console.log(data)
         if (data.ok == true){
             outPutFrame.innerHTML = ""
             memberavatar.src = data.picUrl

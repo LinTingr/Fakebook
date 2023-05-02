@@ -63,7 +63,7 @@ upload.addEventListener("change", function(event) {
 lastclickPost.addEventListener("click", ()=>{
     memberloading.style.display = "flex";
     memberloading.style.opacity = "0.5";
-    const selectlocation = document.querySelector(".selectlocation")
+    const updateSelectlocation = document.querySelector(".updateSelectlocation")
     const postText = postTextInput.value;
     let files = upload.files;
     const dateTime = new Date();
@@ -72,7 +72,7 @@ lastclickPost.addEventListener("click", ()=>{
     const judgeLocation = memberPostLocation.className.includes("color");
     const judgePicture = memberPostPicture.className.includes("color");
     if(judgeLocation){
-        let location = selectlocation.textContent;
+        let location = updateSelectlocation.textContent;
         formData.append("location", location);
     }
     for(let i=0 ; i < files.length ; i++){
