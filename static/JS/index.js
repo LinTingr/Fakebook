@@ -341,13 +341,12 @@ lastclickPost.addEventListener("click", ()=>{
     }).then((data)=>{
         if(data.error){
         }else{
+            postTextInput.value = ""
             if(judgeLocation){
-                postTextInput.value = ""
                 findlocation.innerHTML = ""
                 memberPostPicture.classList.remove("color")
                 memberPostLocation.classList.remove("color")
             }else if(judgePicture){
-                postTextInput.value = ""
                 imagePreview.innerHTML = ""
                 memberPostLocation.classList.remove("color")
                 memberPostPicture.classList.remove("color")
@@ -479,6 +478,7 @@ function postArticle(postId, dateTime, postText, images, postLiker, postLike, po
     likeclickFrame.setAttribute("class", "likeclickFrame hover");
     const likeImg = document.createElement("img");
     let likeCount = 0
+    likeImg.setAttribute("src", "/icon/fblike.png");
     if(postLike){
         if(postLike["clickLike"]){
             likeCount = 1
