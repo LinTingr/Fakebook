@@ -2,7 +2,7 @@
 
 🖥️ Website URL : https://tingbooster.com/
 
-🍽 Test account and password : 
+Test account and password : 
 * test@test.com / test
 ## Backend Architecture
 ![](/static/image/Fakebook.png)
