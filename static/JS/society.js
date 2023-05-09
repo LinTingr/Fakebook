@@ -603,15 +603,13 @@ societyLastClickPost.addEventListener("click", ()=>{
         return response.json()
     }).then((data)=>{
         if(data.error){
-
         }else{
+            societyPostTextInput.value = ""
             if(judgeLocation){
-                societyPostTextInput.value = ""
                 findlocation.innerHTML = ""
                 societyPostPicture.classList.remove("color")
                 societyPostLocation.classList.remove("color")
             }else if(judgePicture){
-                societyPostTextInput.value = ""
                 imagePreview.innerHTML = ""
                 societyPostLocation.classList.remove("color")
                 societyPostPicture.classList.remove("color")
